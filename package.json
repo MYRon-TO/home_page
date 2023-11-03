@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "material-design-lite": "^1.3.0",
-    "material-icons": "^1.13.12"
+    "@material-design-icons/font": "^0.14.13",
+    "material-design-lite": "^1.3.0"
   }
 }
