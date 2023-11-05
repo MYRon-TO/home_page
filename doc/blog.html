@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+
+  <!-- material design lite -->
+  <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+  <script src="/node_modules/material-design-lite/material.min.js"></script>
+  <link href="/node_modules/@material-design-icons/font/index.css" rel="stylesheet">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/styles/blog.css">
+  <link rel="stylesheet" href="/styles/marked.css">
+
+  <!-- scripts -->
+  <script src="/node_modules/marked/marked.min.js"></script>
+  <script src="scripts/GetMD.js"></script>
+
+  <!-- temp background color -->
+  <style>
+    html {
+      background: #f0f0f0;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- <main style="padding: 10%;"> -->
+  <main style="padding: 15%;">
+    <div class="
+      mdl-card
+
+      mdl-color--white
+      mdl-shadow--2dp
+    " style="
+      width: 100%;
+      height: 100%;
+    ">
+
+      <!-- info of the blog -->
+      <div class="
+        mdl-card__supporting-text
+        mdl-card--border
+
+        blog_bar
+        ">
+        <div class="blog_path ">
+          <a href="index.html">Home</a>
+          <span>&gt;</span>
+          <a href="blog.html">Blog</a>
+          <span>&gt;</span>
+          <a href="blog.html">文化历史理论</a>
+        </div>
+      </div>
+
+      <!-- content of the blog -->
+      <div class="
+        mdl-card__supporting-text
+        mdl-card--border
+        " style="
+        width: 100%;
+        height: 100%;
+        padding: 0;
+      ">
+        <article class="blog_artical" id="content"></article>
+      </div>
+
+      <!-- info of the blog -->
+      <div class="
+        mdl-card__supporting-text
+        mdl-card--border
+
+        blog_bar
+        ">
+        <div class="my_image mdl-shadow--2dp"></div>
+        <div class="blog_info">
+          <strong>Myron</strong>
+          <span>1945/10/01</span>
+        </div>
+        <div class="section-spacer"></div>
+        <div class="blog_icon">
+          <span style="padding-right: 5px">114</span>
+          <i class="material-icons">favorite</i>
+        </div>
+        <div class="blog_icon">
+          <i class="material-icons">bookmark</i>
+        </div>
+        <div class="blog_icon">
+          <i class="material-icons">share</i>
+        </div>
+      </div>
+    </div>
+    <div class="
+      blog_bar
+      blog_bar-goback
+    ">
+      <a class="
+        blog_bar-goback-item
+        " href="index.html">
+        <button class="
+          mdl-button
+          mdl-js-button
+          mdl-js-ripple-effect
+
+          mdl-shadow--2dp
+
+          mdl-button--icon
+          mdl-color--white
+          mdl-color-text--grey-800
+          "
+          style="
+          margin-right: 1vw;
+          ">
+          <i class="material-icons">arrow_back</i>
+        </button>
+        <!-- <span style="padding-bottom: 0;">Go Back</span> -->
+        Go Back
+      </a>
+      <div class="section-spacer"></div>
+      <!-- <div class="blog_bar-item"> -->
+      <!--   <i class="material-icons">arrow_forward</i> -->
+      <!-- </div> -->
+    </div>
+
+  </main>
+
+  <footer class="mdl-mini-footer">
+    <div class="mdl-mini-footer__left-section">
+      <div class="mdl-logo">Title</div>
+      <ul class="mdl-mini-footer__link-list">
+        <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
+        <li><a href="https://www.github.com">github</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+<script src="scripts/GetMD.js" onload="getMd('文化历史理论.md');"></script>
+
+</html>

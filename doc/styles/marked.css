@@ -1,0 +1,44 @@
+/* ## marked css */
+
+/* ### set blog article font size */
+.blog_artical * {
+  padding: 0;
+  text-align: justify;
+}
+
+/* ### p */
+.blog_artical p {
+  font-size: 1.2rem;
+}
+
+/* ### strong */
+/* .blog_artical strong { */
+/*   color: #007bff; */
+/* } */
+
+/* ### a */
+/* .blog_artical a { */
+  /* color: #007bff; */
+  /* text-decoration: none; */
+/* } */
+
+/* ### blockquote */
+.blog_artical blockquote{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1em;
+  border-left: 0.25em solid #dfe2e5;
+  background-color: #f8f9fa;
+}
+
+/* 剔除“” */
+.blog_artical blockquote:before, .blog_artical blockquote:after {
+  content: '';
+}
+
+/* 块引用中的段落 */
+.blog_artical blockquote>p {
+  /* margin: 20px 0; */
+  padding-top: 20px;
+  font-size: 1.2rem;
+}

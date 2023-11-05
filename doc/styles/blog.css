@@ -1,0 +1,86 @@
+/* # web page css */
+
+/* ## set blog bar path */
+.blog_path {
+  letter-spacing: 0.2px;
+  color: #4a4a4a;
+}
+
+.blog_path>a{
+  text-decoration: none;
+  color: #4a4a4a;
+}
+
+.blog_path>a:hover{
+  text-decoration: underline;
+}
+
+/* ### set blog article */
+/* ### set blog article padding and margin */
+.blog_artical {
+    padding: 15% 10vw;
+    padding-bottom: 7vh;
+    margin: 0;
+}
+
+
+/* ### blog bar at bottom */
+.blog_bar{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+  padding: 16px;
+  /* padding-bottom: 3vh; */
+}
+
+/* ### set blog info */
+.blog_info {
+   align-items: flex-start;
+   display: flex;
+   flex-direction: column;
+
+   justify-content: center;
+   padding-left: 10px;
+   /* margin-right: auto; */
+   /* border: 1px solid black; */
+}
+
+/* ### icon favorite bookmark share */
+.blog_icon {
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+}
+
+/* ## go back bar */
+.blog_bar-goback-item {
+  text-decoration: none;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  color: white;
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* ### my handsome image */
+/* todo: put it global */
+.my_image {
+   background: no-repeat center center;
+   background-size: cover;
+   background-image: url('/assets/images/icon_480x480.png');
+   height: 44px;
+   width: 44px;
+
+   border-radius: 22px;
+   display: inline-block;
+   justify-content: center;
+}
+
+.section-spacer{
+  flex-grow: 1;
+}

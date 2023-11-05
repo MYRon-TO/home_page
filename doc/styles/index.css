@@ -2,6 +2,13 @@
 /* * { */
 /*     border: 1px solid black; */
 /* } */
+/* main { */
+/*   border: 1px solid red; */
+/* } */
+
+/* .card { */
+/*   border: 1px solid blue; */
+/* } */
 
 /* ---------------------------------------- */
 
@@ -15,6 +22,7 @@
 .card_image {
    color: white;
    height: 100%;
+   /* height: 280px; */
    background:
     #7f8c8d /* default color if there is no image */
     no-repeat

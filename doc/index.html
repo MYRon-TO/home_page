@@ -10,16 +10,16 @@
 
   <!-- material design lite -->
   <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+  <link rel="stylesheet" href="/node_modules/@material-design-icons/font/index.css">
   <script src="/node_modules/material-design-lite/material.min.js"></script>
-  <link href="/node_modules/@material-design-icons/font/index.css" rel="stylesheet">
 
   <!-- css -->
   <link rel="stylesheet" href="/styles/index.css">
 
   <style>
     html {
-      /* background: url('/assets/') no-repeat center center fixed; */
-      background: #f0f0f0;
+      background: url('/assets/images/windows-panic.png') no-repeat center center fixed;
+      /* background: #f0f0f0; */
     }
   </style>
 
@@ -27,81 +27,147 @@
 
 <body>
 
-  <main style="margin: 10%; margin-top: 40%">
+  <div class="mdl-layout mdl-js-layout">
+    <!-- <main class="mdl-layout__content" style=" -->
+    <main style="
+      padding-top: 40%;
+      /* position: relative; */
+      display: block;
+      ">
 
-    <!-- 第一层 -->
-    <div class="mdl-grid card">
+      <!-- grid -->
+      <div class="mdl-grid card" style="
+        padding: 0 23%;
+        padding-bottom: 10%;
+        display: flex;
+        height: 100%;
+        ">
 
-      <div class="mdl-cell mdl-cell--8-col mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title card_image" style="
-            background-image: url('/assets/Takina_blue.jpg')
+        <!-- 第一层 -->
+        <div class="
+          mdl-cell
+          mdl-cell--8-col
+          mdl-cell--4-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
           ">
-          <h2 class="mdl-card__title-text card_image_text">
-            here is a title &nbsp;
-            <!-- 让阴影显示完全 -->
-          </h2>
+          <div class="
+            mdl-card__title
+            card_image
+            " style="
+              background-image: url('/assets/images/Takina_blue.jpg')
+            ">
+            <h2 class="mdl-card__title-text card_image_text">
+              here is a title &nbsp;
+              <!-- 让阴影显示完全 -->
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            this text might describe the photo
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+
+            <a href="blog.html">
+              <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
+                value="click me">
+            </a>
+          </div>
         </div>
-        <div class="mdl-card__supporting-text">
-          this text might describe the photo
+
+        <div class="
+          mdl-cell
+          mdl-cell--4-col
+          mdl-cell--4-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+        ">
+          <div class="mdl-card__title card_image" style="
+            background-image: url('/assets/images/Takina_blue.jpg')
+          ">
+            <h2 class="mdl-card__title-text card_image_text">
+              here is a title &nbsp;
+              <!-- 让阴影显示完全 -->
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            this text might describe the photo
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
+              value="click me">
+          </div>
         </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
-            value="click me">
+
+        <!-- 第二层 -->
+        <div class="
+          mdl-cell
+          mdl-cell--12-col
+          mdl-cell--8-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+        ">
+          <div class="mdl-card__title card_image" style="
+            background-image: url('/assets/images/Takina_blue.jpg')
+          ">
+            <h2 class="mdl-card__title-text card_image_text">
+              here is a title &nbsp;<!-- 让阴影显示完全 -->
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            this text might describe the photo
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
+              value="click me">
+          </div>
         </div>
+
+        <!-- 第三层 -->
+        <div class="
+          mdl-cell
+          mdl-cell--12-col
+          mdl-cell--8-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+        ">
+          <div class="mdl-card__title card_image" style="
+            background-image: url('/assets/images/Takina_blue.jpg')
+          ">
+            <h2 class="mdl-card__title-text card_image_text">
+              here is a title &nbsp;
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            this text might describe the photo
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
+              value="click me">
+          </div>
+        </div>
+
       </div>
 
-      <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title card_image" style="
-            background-image: url('/assets/Takina_blue.jpg')
-          ">
-          <h2 class="mdl-card__title-text card_image_text">
-            here is a title &nbsp;
-            <!-- 让阴影显示完全 -->
-          </h2>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Title</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
+            <li><a href="https://www.github.com">github</a></li>
+          </ul>
         </div>
-        <div class="mdl-card__supporting-text">
-          this text might describe the photo
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
-            value="click me">
-        </div>
-      </div>
+      </footer>
 
-    </div>
-
-    <!-- 第二层 -->
-    <div class="mdl-grid card">
-
-      <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title card_image" style="
-            background-image: url('/assets/Takina_blue.jpg')
-          ">
-          <h2 class="mdl-card__title-text card_image_text">
-            here is a title &nbsp;<!-- 让阴影显示完全 -->
-          </h2>
-        </div>
-        <div class="mdl-card__supporting-text">
-          this text might describe the photo
-        </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
-            value="click me">
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer__left-section">
-      <div class="mdl-logo">Title</div>
-      <ul class="mdl-mini-footer__link-list">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Privacy & Terms</a></li>
-      </ul>
-    </div>
-  </footer>
+    </main>
+  </div>
 
 </body>
 
