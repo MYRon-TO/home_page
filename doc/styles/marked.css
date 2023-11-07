@@ -17,10 +17,21 @@
 /* } */
 
 /* ### a */
-/* .blog_artical a { */
-  /* color: #007bff; */
+.blog_artical a {
+  color: #007bff;
   /* text-decoration: none; */
-/* } */
+}
+
+/* ### ul ol */
+.blog_artical ul li, .blog_artical ol li{
+  padding-left: 1rem;
+}
+
+/* ### picture */
+.blog_artical img {
+  height: auto;
+  max-width: 100%;
+}
 
 /* ### blockquote */
 .blog_artical blockquote{

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -54,9 +54,9 @@
         <div class="blog_path ">
           <a href="index.html">Home</a>
           <span>&gt;</span>
-          <a href="blog.html">Blog</a>
+          <a href="blog_list.html">Blog</a>
           <span>&gt;</span>
-          <a href="blog.html">文化历史理论</a>
+          <a id="blog_path-this" href="#"></a>
         </div>
       </div>
 
@@ -143,6 +143,15 @@
 
 </body>
 
-<script src="scripts/GetMD.js" onload="getMd('文化历史理论.md');"></script>
+<script src="scripts/GetMD.js" onload="
+  // 获取查询字符串
+  let url = window.location.search;
+  // 解析查询字符串为对象
+  let params = new URLSearchParams(url);
+  // 获取参数值
+  let markdown = params.get('markdown');
+  // console.log(markdown);
+  getMd(markdown);
+"></script>
 
 </html>
