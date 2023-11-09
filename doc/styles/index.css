@@ -38,13 +38,18 @@ html {
 
 /* ## here are defalut css for the card */
 .card {
-  display: flex;
+  /* display: flex; */
+  flex-shrink: 0;
 
+  padding: 0;
   padding-bottom: 10%;
 
   width: 100%;
   max-width: 1000px;
-  margin: auto;
+  min-width: 250px;
+
+  margin: 0 auto;
+
   height: auto;
 }
 
@@ -67,7 +72,7 @@ html {
 
 /* ### the title of the card */
 .card_image_text {
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: 300;
   text-shadow: 2px 0 10px rgba(0,0,0,0.5);
 }

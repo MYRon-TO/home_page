@@ -32,79 +32,126 @@
 </head>
 
 <body>
-  <!-- <main style="padding: 10%;"> -->
-  <main style="padding: 15%;">
-    <div class="
-      mdl-card
 
-      mdl-color--white
-      mdl-shadow--2dp
-    " style="
-      width: 100%;
-      height: auto;
-    ">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
 
-      <!-- info of the blog -->
-      <div class="
-        mdl-card__supporting-text
-        mdl-card--border
+    <!-- # header -->
+    <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top"> -->
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
 
-        blog_bar
-        ">
-        <div class="blog_path ">
-          <a href="index.html">Home</a>
-          <span>&gt;</span>
-          <a href="blog_list.html">Blog</a>
-          <span>&gt;</span>
-          <a id="blog_path-this" href="#"></a>
-        </div>
+      <!-- ## title -->
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">博客</span>
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- this will hide in small screen -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="index.html">首页</a>
+          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+          <a class="mdl-navigation__link" href="friend.html">友链</a>
+          <a class="mdl-navigation__link" href="about.html">关于</a>
+        </nav>
       </div>
 
-      <!-- content of the blog -->
-      <div class="
-        mdl-card__supporting-text
-        mdl-card--border
-        " style="
-        width: 100%;
-        height: 100%;
-        padding: 0;
-      ">
-        <article class="blog_artical" id="content"></article>
-      </div>
+      <!-- this will hide when scroll down -->
+      <!-- <div class="mdl-layout__header-row cover" -->
+      <!--   style=" -->
+      <!--     height: 80vh; -->
+      <!--     border: 1px solid red; -->
+      <!--   "> -->
+      <!-- </div> -->
+    </header>
 
-      <!-- info of the blog -->
-      <div class="
-        mdl-card__supporting-text
-        mdl-card--border
-
-        blog_bar
-        ">
-        <div class="my_image mdl-shadow--2dp"></div>
-        <div class="blog_info">
-          <strong>Myron</strong>
-          <span>1945/10/01</span>
-        </div>
-        <div class="section-spacer"></div>
-        <div class="blog_icon">
-          <span style="padding-right: 5px">114</span>
-          <i class="material-icons">favorite</i>
-        </div>
-        <div class="blog_icon">
-          <i class="material-icons">bookmark</i>
-        </div>
-        <div class="blog_icon">
-          <i class="material-icons">share</i>
-        </div>
+    <!-- ## link -->
+    <!-- this will hide in large screen -->
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <div class="mdl-layout-title">
+        传送门
       </div>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="index.html">首页</a>
+          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+          <a class="mdl-navigation__link" href="friend.html">友链</a>
+          <a class="mdl-navigation__link" href="about.html">关于</a>
+      </nav>
     </div>
-    <div class="
-      blog_bar
-      blog_bar-goback
-    ">
-      <a class="
+
+    <main class="mdl-layout__content">
+      <div class="content">
+        <div class="
+            mdl-card
+
+            mdl-color--white
+            mdl-shadow--2dp
+          "
+          style="
+            width: 100%;
+            height: auto;
+        ">
+
+          <!-- info of the blog -->
+          <div class="
+          mdl-card__supporting-text
+          mdl-card--border
+
+          blog_bar
+          ">
+            <div class="blog_path ">
+              <a href="index.html">Home</a>
+              <span>&gt;</span>
+              <a href="blog_list.html">Blog</a>
+              <span>&gt;</span>
+              <a id="blog_path-this" href="#"></a>
+            </div>
+          </div>
+
+          <!-- content of the blog -->
+          <div class="
+            mdl-card__supporting-text
+            mdl-card--border
+            " style="
+            width: 100%;
+            height: 100%;
+            padding: 0;
+          ">
+            <article class="blog_artical" id="content"></article>
+          </div>
+
+          <!-- info of the blog -->
+          <div class="
+            mdl-card__supporting-text
+            mdl-card--border
+
+            blog_bar
+            ">
+            <div class="my_image mdl-shadow--2dp"></div>
+            <div class="blog_info">
+              <strong>Myron</strong>
+              <span>1945/10/01</span>
+            </div>
+            <div class="section-spacer"></div>
+            <div class="blog_icon">
+              <span style="padding-right: 5px">114</span>
+              <i class="material-icons">favorite</i>
+            </div>
+            <div class="blog_icon">
+              <i class="material-icons">bookmark</i>
+            </div>
+            <div class="blog_icon">
+              <i class="material-icons">share</i>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="
+          blog_bar
+          blog_bar-goback
+          ">
+          <a class="
         blog_bar-goback-item
         " href="index.html">
-        <button class="
+            <button class="
           mdl-button
           mdl-js-button
           mdl-js-ripple-effect
@@ -114,32 +161,35 @@
           mdl-button--icon
           mdl-color--white
           mdl-color-text--grey-800
-          "
-          style="
+          " style="
           margin-right: 1vw;
           ">
-          <i class="material-icons">arrow_back</i>
-        </button>
-        <!-- <span style="padding-bottom: 0;">Go Back</span> -->
-        Go Back
-      </a>
-      <div class="section-spacer"></div>
-      <!-- <div class="blog_bar-item"> -->
-      <!--   <i class="material-icons">arrow_forward</i> -->
-      <!-- </div> -->
-    </div>
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <!-- <span style="padding-bottom: 0;">Go Back</span> -->
+            Go Back
+          </a>
+          <div class="section-spacer"></div>
+          <!-- <div class="blog_bar-item"> -->
+          <!--   <i class="material-icons">arrow_forward</i> -->
+          <!-- </div> -->
+        </div>
+      </div>
 
-  </main>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Title</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
+            <li><a href="https://www.github.com">github</a></li>
+          </ul>
+        </div>
+      </footer>
 
-  <footer class="mdl-mini-footer">
-    <div class="mdl-mini-footer__left-section">
-      <div class="mdl-logo">Title</div>
-      <ul class="mdl-mini-footer__link-list">
-        <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
-        <li><a href="https://www.github.com">github</a></li>
-      </ul>
-    </div>
-  </footer>
+    </main>
+    <div class="mdl-layout__obfuscator"></div>
+  </div>
+
 
 </body>
 

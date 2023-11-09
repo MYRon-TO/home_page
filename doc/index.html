@@ -16,9 +16,11 @@
   <!-- css -->
   <link rel="stylesheet" href="/styles/index.css">
 
-  <style>
-
-  </style>
+  <!-- <style> -->
+  <!--   header.hiden { -->
+  <!--     display: none; -->
+  <!--   } -->
+  <!-- </style> -->
 
 </head>
 
@@ -34,17 +36,17 @@
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title">Title</span>
         <div class="mdl-layout-spacer"></div>
+
+        <!-- this will hide in small screen -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="index.html">首页</a>
+          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+          <a class="mdl-navigation__link" href="friend.html">友链</a>
+          <a class="mdl-navigation__link" href="about.html">关于</a>
         </nav>
       </div>
 
-      <!-- ## cover -->
       <!-- this will hide when scroll down -->
-      <!-- this will hide in small screen -->
       <!-- <div class="mdl-layout__header-row cover" -->
       <!--   style=" -->
       <!--     height: 80vh; -->
@@ -57,19 +59,22 @@
     <!-- this will hide in large screen -->
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
       <div class="mdl-layout-title">
-        here is a title
+        传送门
       </div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="index.html">首页</a>
+          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+          <a class="mdl-navigation__link" href="friend.html">友链</a>
+          <a class="mdl-navigation__link" href="about.html">关于</a>
       </nav>
     </div>
 
     <main style="
       padding-top: 0;
-      " class="mdl-layout__content">
+      "
+      class="mdl-layout__content"
+      id="content"
+      >
       <!-- # content -->
       <!-- ## cover -->
       <div class="cover" style="
@@ -77,7 +82,7 @@
         background-size: cover;
         background-origin: content-box;
         ">
-        <h1>here is title</h1>
+        <!-- <h1>here is title</h1> -->
       </div>
 
       <!-- ## grid -->
@@ -212,5 +217,8 @@
   </div>
 
 </body>
+
+<!-- <script src="scripts/hideHeader.js"> -->
+<!-- </script> -->
 
 </html>
