@@ -18,8 +18,8 @@
 
   <style>
     html {
-      background: url('/assets/images/windows-panic.png') no-repeat center center fixed;
-      /* background: #f0f0f0; */
+      /* background: url('/assets/images/windows-panic.png') no-repeat center center fixed; */
+      background: #f0f0f0;
     }
   </style>
 
@@ -27,21 +27,58 @@
 
 <body>
 
-  <div class="mdl-layout mdl-js-layout">
-    <!-- <main class="mdl-layout__content" style=" -->
-    <main style="
-      padding-top: 40%;
-      /* position: relative; */
-      display: block;
-      ">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
 
-      <!-- grid -->
-      <div class="mdl-grid card" style="
-        padding: 0 23%;
-        padding-bottom: 10%;
-        display: flex;
-        height: 100%;
-        ">
+    <!-- # header -->
+    <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top"> -->
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
+
+      <!-- ## title -->
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Title</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+
+      <!-- ## cover -->
+      <!-- this will hide when scroll down -->
+      <!-- this will hide in small screen -->
+      <!-- <div class="mdl-layout__header-row cover" -->
+      <!--   style=" -->
+      <!--     height: 80vh; -->
+      <!--     border: 1px solid red; -->
+      <!--   "> -->
+      <!-- </div> -->
+    </header>
+
+      <!-- ## link -->
+      <!-- this will hide in large screen -->
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <div class="mdl-layout-title">
+        here is a title
+      </div>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+
+    <main style="
+      padding-top: 10%;
+      "
+      class="mdl-layout__content"
+      >
+
+      <!-- # content -->
+      <!-- ## grid -->
+      <div class="mdl-grid card">
 
         <!-- 第一层 -->
         <div class="
@@ -69,7 +106,7 @@
           </div>
           <div class="mdl-card__actions mdl-card--border">
 
-            <a href="blog.html?markdown=/数据通信系统">
+            <a href="blog.html?markdown=数据通信系统">
               <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
                 value="click me">
             </a>
@@ -156,7 +193,9 @@
 
       </div>
 
-      <footer class="mdl-mini-footer">
+      <!-- ## footer -->
+      <footer class="mdl-mini-footer"
+        style="display: flex;">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">Title</div>
           <ul class="mdl-mini-footer__link-list">
@@ -167,6 +206,7 @@
       </footer>
 
     </main>
+    <div class="mdl-layout__obfuscator"></div>
   </div>
 
 </body>

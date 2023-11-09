@@ -10,6 +10,7 @@ function getMd(md_path) {
 				let text = httpRequest.responseText;
 				text = changePath_pic(text);
 				document.getElementById("content").innerHTML = marked.parse(text);
+				document.getElementById("blog_path-this").innerHTML = `${which_md}`;
 			} else {
 				console.log(httpRequest.status);
 			}
@@ -19,23 +20,23 @@ function getMd(md_path) {
 		// 	console.log(httpRequest.readyState);
 		// }
 	};
-	const md_name = `/assets/blogs${which_md}`;
+	const md_name = `/assets/blogs/${which_md}.md`;
 	// 发送请求
 	httpRequest.open("GET", md_name, true);
 	httpRequest.send();
 }
 
-function changePath_pic(text: string): string {
-	const reg_pic = new RegExp("!\\[(.*)\\]\\((.*)\\)", "mg");
-	const result = text.replace(reg_pic, "![$1](/assets/blog/$2)");
-
+function changePath_pic(text) {
+  let result = text;
+	const reg_pic = new RegExp("!\\[(.*)\\]\\((?!https://\|http://)(.*)\\)", "mg");
 	const reg_get_path = new RegExp(
-		"(?:[.*])(?!https://|http://)(.*/)(.*).md",
+		"\\[(.*)\\]\\((?!https://|http://)(?:.*)/(.*).md\\)",
 		"mg",
 	);
-	const result_get_path = text.replace(
+	result = result.replace(reg_pic, "![$1](/assets/blogs/$2)");
+	result = result.replace(
 		reg_get_path,
-		"blog.html?markdown=$1$2.md",
+		"[$1](blog.html?markdown=$2)",
 	);
 	return result;
 }
