@@ -17,10 +17,7 @@
   <link rel="stylesheet" href="/styles/index.css">
 
   <style>
-    html {
-      /* background: url('/assets/images/windows-panic.png') no-repeat center center fixed; */
-      background: #f0f0f0;
-    }
+
   </style>
 
 </head>
@@ -56,27 +53,33 @@
       <!-- </div> -->
     </header>
 
-      <!-- ## link -->
-      <!-- this will hide in large screen -->
+    <!-- ## link -->
+    <!-- this will hide in large screen -->
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
       <div class="mdl-layout-title">
         here is a title
       </div>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
       </nav>
     </div>
 
     <main style="
-      padding-top: 10%;
-      "
-      class="mdl-layout__content"
-      >
-
+      padding-top: 0;
+      " class="mdl-layout__content">
       <!-- # content -->
+      <!-- ## cover -->
+      <div class="cover" style="
+        background: url('/assets/images/Takina_blue.jpg') no-repeat center;
+        background-size: cover;
+        background-origin: content-box;
+        ">
+        <h1>here is title</h1>
+      </div>
+
       <!-- ## grid -->
       <div class="mdl-grid card">
 
@@ -194,8 +197,7 @@
       </div>
 
       <!-- ## footer -->
-      <footer class="mdl-mini-footer"
-        style="display: flex;">
+      <footer class="mdl-mini-footer" style="display: flex;">
         <div class="mdl-mini-footer__left-section">
           <div class="mdl-logo">Title</div>
           <ul class="mdl-mini-footer__link-list">

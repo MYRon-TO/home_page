@@ -12,6 +12,7 @@
 
 /* ---------------------------------------- */
 
+/* ## here are default css for the main layout of the page */
 main {
   position: relative;
   z-index: 1;
@@ -20,7 +21,22 @@ main {
   height: 100%;
 }
 
-/* ## here is defalut css for the card */
+html {
+  /* background: url('/assets/images/windows-panic.png') no-repeat center center fixed; */
+  background: #f0f0f0;
+}
+
+.cover {
+  height: 80vh;
+  margin-bottom: -10%;
+}
+
+.cover h1{
+  padding: 0;
+  margin: 0;
+}
+
+/* ## here are defalut css for the card */
 .card {
   display: flex;
 
