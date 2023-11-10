@@ -14,12 +14,11 @@
   <script src="/node_modules/material-design-lite/material.min.js"></script>
 
   <!-- css -->
-  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/header.css">
 
   <!-- <style> -->
-  <!--   header.hiden { -->
-  <!--     display: none; -->
-  <!--   } -->
+  <!--   @import "https://www.nerdfonts.com/assets/css/webfont.css" -->
   <!-- </style> -->
 
 </head>
@@ -29,7 +28,6 @@
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
 
     <!-- # header -->
-    <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top"> -->
     <header class="mdl-layout__header mdl-layout__header--waterfall">
 
       <!-- ## title -->
@@ -38,11 +36,15 @@
         <div class="mdl-layout-spacer"></div>
 
         <!-- this will hide in small screen -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+        <nav class="mdl-navigation mdl-layout--large-screen-only header-nav">
+          <a class="header-nav__link mdl-navigation__link" id="home" href="index.html"><i
+              class="material-icons">home</i>首页</a>
+          <a class="header-nav__link mdl-navigation__link" id="blog" href="blog_list.html"><i
+              class="material-icons">article</i>博客</a>
+          <a class="header-nav__link mdl-navigation__link" id="link" href="friend.html"><i
+              class="material-icons">group</i>友链</a>
+          <a class="header-nav__link mdl-navigation__link" id="about" href="about.html"><i
+              class="material-icons">info</i>关于</a>
         </nav>
       </div>
 
@@ -62,19 +64,30 @@
         传送门
       </div>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+        <a class="mdl-navigation__link" href="index.html">首页</a>
+        <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="friend.html">友链</a>
+        <a class="mdl-navigation__link" href="about.html">关于</a>
       </nav>
+    </div>
+
+    <!-- ## tooltip -->
+    <div class="mdl-tooltip mdl-tooltip--large" for="home">
+      <span>首页</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="blog">
+      <span>我的博客</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="link">
+      <span>我的好友们</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="about">
+      <span>关于我</span>
     </div>
 
     <main style="
       padding-top: 0;
-      "
-      class="mdl-layout__content"
-      id="content"
-      >
+      " class="mdl-layout__content" id="content">
       <!-- # content -->
       <!-- ## cover -->
       <div class="cover" style="

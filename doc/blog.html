@@ -24,7 +24,14 @@
   <!-- temp background color -->
   <style>
     html {
-      background: #f0f0f0;
+      /* background: #f0f0f0; */
+      background: url(assets/images/Takina_blue.jpg) no-repeat center center fixed;
+      background-size: cover;
+      /* filter: blur(5px); */
+    }
+    main {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
   </style>
 
@@ -37,6 +44,7 @@
 
     <!-- # header -->
     <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top"> -->
+    <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--transparent"> -->
     <header class="mdl-layout__header mdl-layout__header--waterfall">
 
       <!-- ## title -->
@@ -89,7 +97,18 @@
             height: auto;
         ">
 
-          <!-- info of the blog -->
+          <!-- cover -->
+          <div class="
+          mdl-card__media
+          mdl-card--border
+
+          blog_cover
+
+          ">
+            <img src="assets/images/Takina_blue.jpg"/>
+          </div>
+
+          <!-- path -->
           <div class="
           mdl-card__supporting-text
           mdl-card--border

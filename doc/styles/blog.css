@@ -6,6 +6,17 @@
   margin: 10% auto;
 }
 
+/* ## set blog bar cover */
+/* .blog_cover { */
+  /* max-height: 300px; */
+/* } */
+
+.blog_cover img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
 /* ## set blog bar path */
 .blog_path {
   letter-spacing: 0.2px;
@@ -24,8 +35,7 @@
 /* ### set blog article */
 /* ### set blog article padding and margin */
 .blog_artical {
-    padding: 15% 10vw;
-    padding-bottom: 7vh;
+    padding: 7vh 7vw;
     margin: 0;
 }
 
