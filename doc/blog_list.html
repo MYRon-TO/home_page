@@ -14,8 +14,7 @@
   <script src="/node_modules/material-design-lite/material.min.js"></script>
 
   <!-- css -->
-  <link rel="stylesheet" href="/styles/index.css">
-  <link rel="stylesheet" href="/styles/blog_list.css">
+  <link rel="stylesheet" href="styles/blog_list.css">
 
   <style>
   </style>
@@ -45,13 +44,10 @@
       </div>
 
       <!-- this will hide when scroll down -->
-      <!-- <div class="mdl-layout__header-row"> -->
-      <!--   <nav class="mdl-navigation mdl-layout--large-screen-only"> -->
-      <!--     <a class="mdl-navigation__link" href="">Link</a> -->
-      <!--     <a class="mdl-navigation__link" href="">Link</a> -->
-      <!--     <a class="mdl-navigation__link" href="">Link</a> -->
-      <!--     <a class="mdl-navigation__link" href="">Link</a> -->
-      <!--   </nav> -->
+      <!-- <div class="mdl-layout__tab-bar mdl-js-ripple-effect"> -->
+      <!--   <a href="#scroll-tab-all"    class="mdl-layout__tab is-active">全部</a> -->
+      <!--   <a href="#scroll-tab-series" class="mdl-layout__tab">分类</a> -->
+      <!--   <a href="#scroll-tab-tag"    class="mdl-layout__tab">标签</a> -->
       <!-- </div> -->
     </header>
 
@@ -62,55 +58,116 @@
         传送门
       </div>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+        <a class="mdl-navigation__link" href="index.html">首页</a>
+        <a class="mdl-navigation__link" href="blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="friend.html">友链</a>
+        <a class="mdl-navigation__link" href="about.html">关于</a>
       </nav>
     </div>
 
     <main style="
       padding-top: 0;
-      "
-      class="mdl-layout__content"
-      id="content"
-      >
+      " class="mdl-layout__content" id="content">
       <!-- # content -->
-      <!-- ## grid -->
-      <div class="mdl-grid card">
+      <!-- ### grid -->
+      <div class="mdl-grid grid_card">
 
-        <!-- 第一层 -->
+        <!-- all -->
         <div class="
           mdl-cell
-          mdl-cell--12-col
+          mdl-cell--4-col
           mdl-cell--8-col-tablet
           mdl-cell--4-col-phone
 
           mdl-card
           mdl-shadow--2dp
+
+          card
           ">
-          <div class="
+          <a class="card_link" href="blog.html?markdown=数据通信系统">
+            <div class="
             mdl-card__title
             card_image
-            " style="
-              background-image: url('/assets/images/Takina_blue.jpg')
-            ">
-            <h2 class="mdl-card__title-text card_image_text">
-              here is a title &nbsp;
-              <!-- 让阴影显示完全 -->
-            </h2>
-          </div>
-          <div class="mdl-card__supporting-text">
-            this text might describe the photo
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-
-            <a href="blog.html?markdown=数据通信系统">
-              <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
-                value="click me">
-            </a>
+            " id="left">
+              <h2 class="mdl-card__title-text card_image_text_background">
+                <div class="card_image_text">
+                  <i class="material-icons">category</i>
+                  全部 &nbsp;
+                </div>
+                <!-- 让阴影显示完全 -->
+              </h2>
+            </div>
+          </a>
+          <div class="mdl-card__supporting-text mdl-card--border card_description">
+            所有的文章，按时间顺序排列
           </div>
         </div>
+
+        <!-- serise -->
+        <div class="
+          mdl-cell
+          mdl-cell--4-col
+          mdl-cell--8-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+
+          card
+          ">
+          <a class="card_link" href="blog.html?markdown=数据通信系统">
+            <div class="
+            mdl-card__title
+            card_image
+            " 
+            id="center"
+            >
+              <h2 class="mdl-card__title-text card_image_text_background">
+                <div class="card_image_text">
+                  <i class="material-icons">grid_view</i>
+                  分类 &nbsp;
+                </div>
+                <!-- 让阴影显示完全 -->
+              </h2>
+            </div>
+          </a>
+          <div class="mdl-card__supporting-text mdl-card--border card_description">
+            文章的分类
+          </div>
+        </div>
+
+        <!-- tag -->
+        <div class="
+          mdl-cell
+          mdl-cell--4-col
+          mdl-cell--8-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+
+          card
+          ">
+          <a class="card_link" href="blog.html?markdown=数据通信系统">
+            <div class="
+            mdl-card__title
+            card_image
+            "
+            id = "right">
+              <h2 class="mdl-card__title-text card_image_text_background">
+                <div class="card_image_text">
+                  <i class="material-icons">sell</i>
+                  标签 &nbsp;
+                </div>
+                <!-- 让阴影显示完全 -->
+              </h2>
+            </div>
+          </a>
+          <div class="mdl-card__supporting-text mdl-card--border card_description">
+            依照标签分类的文章
+          </div>
+        </div>
+
 
       </div>
 

@@ -37,7 +37,7 @@ html {
 }
 
 /* ## here are defalut css for the card */
-.card {
+.grid_card {
   /* display: flex; */
   flex-shrink: 0;
 
@@ -51,28 +51,4 @@ html {
   margin: 0 auto;
 
   height: auto;
-}
-
-/* ### the image of the card */
-/* please put the image in HTML */
-.card_image {
-   color: white;
-   height: 100%;
-   min-height: 200px;
-   background:
-    #7f8c8d /* default color if there is no image */
-    no-repeat
-
-    /* i do not think this is a good idea */
-    right 20%
-    top 35%
-    ;/* to add (or remove) css easily */
-   background-size: cover;
-}
-
-/* ### the title of the card */
-.card_image_text {
-  font-size: 3rem;
-  font-weight: 300;
-  text-shadow: 2px 0 10px rgba(0,0,0,0.5);
 }
