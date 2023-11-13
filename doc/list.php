@@ -67,14 +67,29 @@
       <!-- ### grid -->
       <div class="mdl-grid grid_card">
 
-      <?php
-      $con = mysqli_connect("localhost","BlueBird");
-      if (!$con){
-        //die('Could not connect: ' . mysqli_error());
-      }
+<?php
+  use Yosymfony\Toml\Toml;
 
-      mysqli_close($con);
-      ?>
+  try{
+
+    $config   = Toml::ParseFile('/yuru/.config/config.toml');
+    $host     = $config['database']['host'] ?? "localhost";
+    $user     = $config['database']['user'] ?? "user";
+    $password = $config['database']['password'] ?? "";
+    
+    $con = mysqli_connect($host, $user, $password);
+
+    if(mysqli_connect_errno()){
+      throw new Exception("Failed to connect to MySQL: " . mysqli_connect_error());
+    }else{
+    echo "done";
+    }
+
+    mysqli_close($con);
+  }catch(Exception $e){
+    echo $e->getMessage();
+  }
+?>
 
       </div>
 
