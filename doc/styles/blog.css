@@ -88,7 +88,7 @@
 .my_image {
    background: no-repeat center center;
    background-size: cover;
-   background-image: url('/assets/images/icon_480x480.png');
+   background-image: url('/yuru/doc/assets/images/icon_480x480.png');
    height: 44px;
    width: 44px;
 
