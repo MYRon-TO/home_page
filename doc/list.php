@@ -67,14 +67,14 @@
       <!-- ### grid -->
       <div class="mdl-grid grid_card">
 
-<?php
-$con = mysql_connect("localhost","BlueBird");
-if (!$con){
-die('Could not connect: ' . mysql_error());
-}
+      <?php
+      $con = mysqli_connect("localhost","BlueBird");
+      if (!$con){
+        //die('Could not connect: ' . mysqli_error());
+      }
 
-mysql_close($con);
-?>
+      mysqli_close($con);
+      ?>
 
       </div>
 
