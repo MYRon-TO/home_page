@@ -1,0 +1,14 @@
+/Users/miaoyuanrong/GIT/yuru/backend/target/debug/deps/zerocopy-20baf81957bbdc54.rmeta: /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/lib.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macros.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macro_util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/third_party/rust/layout.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/wrappers.rs
+
+/Users/miaoyuanrong/GIT/yuru/backend/target/debug/deps/libzerocopy-20baf81957bbdc54.rlib: /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/lib.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macros.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macro_util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/third_party/rust/layout.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/wrappers.rs
+
+/Users/miaoyuanrong/GIT/yuru/backend/target/debug/deps/zerocopy-20baf81957bbdc54.d: /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/lib.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macros.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macro_util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/util.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/third_party/rust/layout.rs /Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/wrappers.rs
+
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/lib.rs:
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macros.rs:
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/macro_util.rs:
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/util.rs:
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/third_party/rust/layout.rs:
+/Users/miaoyuanrong/.cargo/registry/src/index.crates.io-6f17d22bba15001f/zerocopy-0.7.26/src/wrappers.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.7.26
