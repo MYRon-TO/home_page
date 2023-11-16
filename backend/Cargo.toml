@@ -18,3 +18,7 @@ sqlx-mysql = "0.7"
 
 # date time
 chrono = {version = "0.4"}
+
+# Json
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
