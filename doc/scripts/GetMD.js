@@ -8,7 +8,7 @@ function getMd(md_path) {
             if (httpRequest.status === 200) {
                 // console.log(httpRequest.responseText);
                 let text = httpRequest.responseText;
-                text = changePath_pic(text);
+                text = changePath_pic(text, `${which_md}`);
                 document.getElementById("content").innerHTML = marked.parse(text);
                 document.getElementById("blog_path-this").innerHTML = `${which_md}`;
             }
@@ -21,17 +21,22 @@ function getMd(md_path) {
         // 	console.log(httpRequest.readyState);
         // }
     };
-    const md_name = `/yuru/assets/blogs/${which_md}.md`;
+    const md_name = `/yuru/assets/blogs/${which_md}/${which_md}.md`;
     console.log(md_name);
     // 发送请求
     httpRequest.open("GET", md_name, true);
     httpRequest.send();
 }
-function changePath_pic(text) {
+function changePath_pic(text, md_name) {
     let result = text;
-    const reg_pic = new RegExp("!\\[(.*)\\]\\((?!https://\|http://)(.*)\\)", "mg");
+    // fix links path
     const reg_get_path = new RegExp("\\[(.*)\\]\\((?!https://|http://)(?:.*)/(.*).md\\)", "mg");
-    result = result.replace(reg_pic, "![$1](/yuru/assets/blogs/$2)");
     result = result.replace(reg_get_path, "[$1](/yuru/doc/blog.html?markdown=$2)");
+
+    // fix pictures path
+    const reg_pic = new RegExp("!\\[(.*)\\]\\((?!https://\|http://)./(.*)\\)", "mg");
+    result = result.replace(reg_pic, `![$1](/yuru/assets/blogs/${md_name}/$2)`);
+
+
     return result;
 }

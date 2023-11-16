@@ -3,7 +3,7 @@ here is the source code of my blog
 
 **these code won't work on windows, i guess :(**
 
-## What I used
+## What I use
 - mysql
 - node.js
   - npm
@@ -14,10 +14,11 @@ here is the source code of my blog
         - material design icons
         - material desifn lite
 - rust
+  - cargo
     - axum <!-- web framework -->
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
-    - serde_json <!-- json parser -->
+      - serde_json <!-- json parser -->
 
 ## Quick Start
 make sure you have installed node.js ,mysql and rust
