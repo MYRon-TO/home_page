@@ -6,7 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# web framework
 tokio = {version="^1.0.0", features = ["full"]}
-axum = "^0.6.0"
-tower-http = {version = "0.4", features=["full"]}
+axum = {version="^0.6.0", features = ["headers"]}
+tower-http = {version = "0.4", features = ["full"]}
+
+# database
 sqlx = {version = "0.7", features = ["runtime-tokio-rustls", "mysql", "macros", "time"]} 
+sqlx-core = "0.7"
+sqlx-mysql = "0.7"
+
+# date time
+chrono = {version = "0.4"}
