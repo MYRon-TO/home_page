@@ -12,12 +12,9 @@ axum = {version="^0.6.0", features = ["headers"]}
 tower-http = {version = "0.4", features = ["full"]}
 
 # database
-sqlx = {version = "0.7", features = ["runtime-tokio-rustls", "mysql", "macros", "time"]} 
+sqlx = {version = "0.7", features = ["runtime-tokio-rustls", "mysql", "macros", "chrono"]} 
 sqlx-core = "0.7"
 sqlx-mysql = "0.7"
-
-# date time
-chrono = {version = "0.4"}
 
 # Json
 serde = { version = "1.0", features = ["derive"] }

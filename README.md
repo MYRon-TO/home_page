@@ -18,7 +18,6 @@ here is the source code of my blog
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
     - serde_json <!-- json parser -->
-    - chrono <!-- date time -->
 
 ## Quick Start
 make sure you have installed node.js ,mysql and rust
@@ -37,32 +36,31 @@ CREATE DATABASE yuru;
 ```sql
 USE yuru;
 
-CREATE TABLE IF NOT EXISTS serise (
+CREATE TABLE IF NOT EXISTS series (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
-CREATE TABLE IF NOT EXISTS blog_serise (
+CREATE TABLE IF NOT EXISTS blog_series (
     id INT AUTO_INCREMENT PRIMARY KEY,
     info_path VARCHAR(255) NOT NULL,
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    serise_id INT,
-    FOREIGN KEY (serise_id) REFERENCES serise(id)
+    series_id INT,
+    FOREIGN KEY (series_id) REFERENCES series(id)
     );
 
 CREATE TABLE IF NOT EXISTS tag (
     blog_id INT,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY (blog_id, name),
-    FOREIGN KEY (blog_id) REFERENCES blog_serise(id)
+    FOREIGN KEY (blog_id) REFERENCES blog_series(id)
     );
 ```
 
 #### create user
 ```sql
 -- I won't show you my password :)
-
 CREATE USER 'user_can_read'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'user_can_write'@'localhost' IDENTIFIED BY 'password';
 

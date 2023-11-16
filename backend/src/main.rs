@@ -4,8 +4,6 @@ use axum::{
     Router,
 };
 
-use sqlx::FromRow;
-
 use backend::db;
 
 use std::net::SocketAddr;
@@ -21,6 +19,9 @@ async fn main() {
         .route("/", get(hello_world));  // localhost:3000/
 
     let db = db::Database::new().await;
+    let answer = db.get_all_series().await;
+    println!("{:?}", answer);
+
 
     // 设置监听地址
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
