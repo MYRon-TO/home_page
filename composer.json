@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+        "vimeo/psalm": "^5.15"
+    },
+    "require": {
+        "yosymfony/toml": "^1.0"
+    }
+}

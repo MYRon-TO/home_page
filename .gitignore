@@ -1,4 +1,6 @@
 .DS_Store
 backend/target/
 
+
+/.config/config.toml
 backend/target
