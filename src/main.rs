@@ -13,7 +13,8 @@ async fn main() {
 
     // 设置路由
     let app = Router::new()
-        .route("/", get(backend::pages::hello_world));
+        .route("/", get(backend::pages::hello_world))
+        .route("/list", get(backend::list));
 
     // 设置监听地址
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
