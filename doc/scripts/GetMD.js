@@ -21,7 +21,7 @@ function getMd(md_path) {
         // 	console.log(httpRequest.readyState);
         // }
     };
-    const md_name = `/yuru/assets/blogs/${which_md}/${which_md}.md`;
+    const md_name = `/yuru/assets/blogs/${which_md}/blog.md`;
     console.log(md_name);
     // 发送请求
     httpRequest.open("GET", md_name, true);

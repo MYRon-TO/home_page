@@ -20,11 +20,11 @@ pub struct Database {
 }
 
 impl Database {
-    pub async fn new() -> Database {
+    pub async fn new(db: String) -> Database {
         // 创建连接池
         let pool = MySqlPoolOptions::new()
             .max_connections(5)
-            .connect("mysql://BlueBird:%23ff0000Berry@localhost/yuru")
+            .connect(db.as_str())
             .await
             .expect("连接数据库失败");
 
