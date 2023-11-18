@@ -1,14 +1,11 @@
+use std::net::SocketAddr;// 用于设置监听地址
 use axum::{
     // http::StatusCode,
     routing::get,
     Router,
 };
 
-use backend;
-
-
-
-use std::{net::SocketAddr, thread::sleep};
+use backend;// lib.rs
 
 async fn hello_world() -> &'static str {
     "Hello, World!"

@@ -1,6 +1,7 @@
 // 模块树
 pub mod db;
 pub mod io;
+pub mod pages;
 
 pub mod run{
   use crate::io::config_toml::Config;
