@@ -1,9 +1,10 @@
 # yuru
-here is the source code of my blog
+Here is the source code of my blog
 
-**these code won't work on windows, i guess :(**
+**These code won't work on windows, I guess :(**
 
 ## What I use
+- apache(or lighttpd)
 - mysql
 - node.js
   - npm
@@ -19,6 +20,7 @@ here is the source code of my blog
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
       - serde_json <!-- json parser -->
+    - askama <!-- template engine -->
 
 ## Quick Start
 make sure you have installed node.js ,mysql and rust

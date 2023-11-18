@@ -1,0 +1,6 @@
+# see more details at https://djc.github.io/askama/configuration.html
+
+[general]
+# Directories to search for templates, relative to the crate root.
+# default is dirs = ["templates"]
+dirs = ["doc"]

@@ -7,22 +7,13 @@ use axum::{
 
 use backend;// lib.rs
 
-async fn hello_world() -> &'static str {
-    "Hello, World!"
-}
-
-async fn hi_world() -> &'static str {
-    "hi"
-}
-
 #[tokio::main]
 async fn main() {
     backend::run::init().await;
 
     // 设置路由
     let app = Router::new()
-        .route("/", get(hello_world))
-        .route("/hi/", get(hi_world)); // localhost:3000/
+        .route("/", get(backend::pages::hello_world));
 
     // 设置监听地址
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
