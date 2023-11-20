@@ -4,9 +4,11 @@ pub mod io;
 pub mod pages;
 
 pub mod run {
+    use tokio::sync::Mutex;
+
     use crate::db::Database;
     use crate::io::config_toml::Config;
-    use std::sync::{Arc, Mutex}; // 用于共享状态
+    use std::sync::Arc; // 用于共享状态
 
     #[derive(Clone)]
     pub struct AppState {
