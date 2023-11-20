@@ -21,7 +21,7 @@ function getMd(md_path) {
         // 	console.log(httpRequest.readyState);
         // }
     };
-    const md_name = `/yuru/assets/blogs/${which_md}/blog.md`;
+    const md_name = `/assets/blogs/${which_md}/blog.md`;
     console.log(md_name);
     // 发送请求
     httpRequest.open("GET", md_name, true);
@@ -31,11 +31,11 @@ function changePath_pic(text, md_name) {
     let result = text;
     // fix links path
     const reg_get_path = new RegExp("\\[(.*)\\]\\((?!https://|http://)(?:.*)/(.*).md\\)", "mg");
-    result = result.replace(reg_get_path, "[$1](/yuru/doc/blog.html?markdown=$2)");
+    result = result.replace(reg_get_path, "[$1](/blog.html?markdown=$2)");
 
     // fix pictures path
     const reg_pic = new RegExp("!\\[(.*)\\]\\((?!https://\|http://)./(.*)\\)", "mg");
-    result = result.replace(reg_pic, `![$1](/yuru/assets/blogs/${md_name}/$2)`);
+    result = result.replace(reg_pic, `![$1](/assets/blogs/${md_name}/$2)`);
 
 
     return result;

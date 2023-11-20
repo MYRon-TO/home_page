@@ -6,30 +6,21 @@ pub mod pages;
 pub mod run {
     use crate::db::Database;
     use crate::io::config_toml::Config;
+    use std::sync::{Arc, Mutex}; // 用于共享状态
 
-    pub async fn init() {
-        let config: Config = Config::new();
-        let _db = Database::new(config.database.get()).await;
-
-        // let answer = db.get_all_series().await;
-        // println!("{:?}", answer);
+    #[derive(Clone)]
+    pub struct AppState {
+        pub database: Arc<Mutex<Database>>,
     }
-}
 
-use askama::Template;
+    impl AppState {
+        pub async fn init() -> Self {
+            let config: Config = Config::new();
+            let db = Database::new(config.database.get()).await;
 
-#[derive(Template)]
-#[template(path = "list.html")]
-pub struct ListTemplate<'a> {
-    title: &'a str,
-    cover: &'a str,
-    description: &'a str,
-}
-
-pub async fn list() -> ListTemplate<'static> {
-    ListTemplate {
-        title: "TiTlE",
-        cover: "cOvEr",
-        description: "dEsCrIpTiOn",
+            Self {
+                database: Arc::new(Mutex::new(db)),
+            }
+        }
     }
 }

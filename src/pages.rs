@@ -1,12 +1,8 @@
-use askama::Template;
+//! 这里是页面的处理函数
+pub mod list;
+use axum::http::StatusCode;
 
-#[derive(Template)]
-#[template(source = "<h1>hello {{ name }}</h1>",ext = "html",)]
-pub struct HelloTemplate<'a> {
-    name: &'a str,
+// todo: 404 page
+pub async fn fallback() -> (StatusCode, &'static str) {
+    (StatusCode::NOT_FOUND, "Not Found")
 }
-
-pub async fn hello_world() ->HelloTemplate<'static> {
-    HelloTemplate { name: "world" }
-}
-

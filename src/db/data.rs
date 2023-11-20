@@ -15,4 +15,17 @@ impl SeriesDb {
             info_path,
         }
     }
+
+    pub fn get_name(&self) -> String {
+        self.name.clone()
+    }
+
+    pub fn get_create_time(&self) -> DateTime<Utc> {
+        self.create_time.clone()
+    }
+
+    pub fn get_info_path(&self) -> String {
+        self.info_path.clone()
+    }
 }
+

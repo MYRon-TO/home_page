@@ -39,13 +39,19 @@ impl Database {
     // }
 
     async fn select(&self, query: &str) -> Result<Vec<sqlx::mysql::MySqlRow>, sqlx::Error> {
-        match sqlx::query(query).fetch_all(&self.pool).await {
-            Ok(rows) => Ok(rows),
-            Err(e) => Err(e),
-        }
+        Ok(sqlx::query(query).fetch_all(&self.pool).await?)
     }
 
-    // pub async fn get_all_series(&self) -> Result<Vec<sqlx::mysql::MySqlRow>, sqlx::Error> {
+    /// get all series from database
+    /// return a vector of SeriesDb
+    /// in case u forgot what is SeriesDb
+    /// ```
+    /// pub struct SeriesDb {
+    ///     name: String,
+    ///     create_time: DateTime<Utc>,
+    ///     info_path: String,
+    /// }
+    /// ```
     pub async fn get_all_series(&self) -> Vec<SeriesDb> {
         let query = "SELECT * FROM series";
 
