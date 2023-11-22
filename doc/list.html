@@ -74,7 +74,7 @@
         <!-- here put the cards -->
         {% match list_type %}
         {% when ListType::Series %}
-          {% for item in items.items %}
+          {% for item in items.content %}
           <div class="
             mdl-cell
             mdl-cell--12-col
@@ -84,26 +84,26 @@
             mdl-card
             mdl-shadow--2dp
             ">
-            <a class="card_link" href={{ item.link }}>
+            <a class="card_link" href={{ item.get_link() }}>
               <div class="
               mdl-card__title
               card_image
               " style="
-                {{ item.cover }}
+                {{ item.get_cover() }}
               ">
                 <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.title }}&nbsp;
+                  {{ item.get_title() }}&nbsp;
                   <!-- 让阴影显示完全 -->
                 </h2>
               </div>
             </a>
             <div class="mdl-card__supporting-text">
-              {{ item.desc }}
+              {{ item.get_desc() }}
             </div>
           </div>
           {% endfor %}
         {% when ListType::All %}
-          {% for item in items.items %}
+          {% for item in items.content %}
           <div class="
             mdl-cell
             mdl-cell--6-col
@@ -113,26 +113,26 @@
             mdl-card
             mdl-shadow--2dp
             ">
-            <a class="card_link" href={{ item.link }}>
+            <a class="card_link" href={{ item.get_link() }}>
               <div class="
               mdl-card__title
               card_image
               " style="
-                {{ item.cover }}
+                {{ item.get_cover() }}
               ">
                 <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.title }}&nbsp;
+                  {{ item.get_title() }}&nbsp;
                   <!-- 让阴影显示完全 -->
                 </h2>
               </div>
             </a>
             <div class="mdl-card__supporting-text">
-              {{ item.desc }}
+              {{ item.get_desc() }}
             </div>
           </div>
           {% endfor %}
         {% when ListType::Tags %}
-          {% for item in items.items %}
+          {% for item in items.content %}
           <div class="
             mdl-cell
             mdl-cell--3-col
@@ -142,21 +142,21 @@
             mdl-card
             mdl-shadow--2dp
             ">
-            <a class="card_link" href={{ item.link }}>
+            <a class="card_link" href={{ item.get_link() }}>
               <div class="
               mdl-card__title
               card_image
               " style="
-                {{ item.cover }}
+                {{ item.get_cover() }}
               ">
                 <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.title }}&nbsp;
+                  {{ item.get_title() }}&nbsp;
                   <!-- 让阴影显示完全 -->
                 </h2>
               </div>
             </a>
             <div class="mdl-card__supporting-text">
-              {{ item.desc }}
+              {{ item.get_desc() }}
             </div>
           </div>
           {% endfor %}

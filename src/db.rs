@@ -1,5 +1,4 @@
 pub mod data;
-use crate::db::data::SeriesDb;
 use std::vec;
 
 // sql
@@ -12,6 +11,8 @@ use sqlx::{
     Row,
     types::chrono::{DateTime, Utc},
 };
+
+use self::data::DbData;
 
 // date
 
@@ -52,17 +53,34 @@ impl Database {
     ///     info_path: String,
     /// }
     /// ```
-    pub async fn get_all_series(&self) -> Vec<SeriesDb> {
+    pub async fn get_all_series(&self) -> Vec<DbData> {
         let query = "SELECT * FROM series";
 
-        let mut data: Vec<SeriesDb> = vec![];
+        let mut data: Vec<DbData> = vec![];
 
         if let Ok(rows) = self.select(query).await {
             for row in rows {
                 let name: String = row.get::<String, _>("name");
                 let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
                 let info_path: String = row.get::<String, _>("info_path");
-                data.push(SeriesDb::new(name, create_time, info_path));
+                data.push(DbData::new_series(name, create_time, info_path));
+            }
+        }
+        return data;
+    }
+
+
+    pub async fn get_all_blog(&self) -> Vec<DbData> {
+        let query = "SELECT * FROM blog_series";
+
+        let mut data: Vec<DbData> = vec![];
+
+        if let Ok(rows) = self.select(query).await {
+            for row in rows {
+                let series: String = row.get::<String, _>("series");
+                let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
+                let info_path: String = row.get::<String, _>("info_path");
+                data.push(DbData::new_blog_series(info_path, create_time, series));
             }
         }
         return data;

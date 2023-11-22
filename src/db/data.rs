@@ -1,31 +1,22 @@
 use sqlx::types::chrono::{DateTime, Utc};
 
+use self::blog_series_db::BlogSeriesDb;
+
+pub mod series_db;
+pub mod blog_series_db;
+
 #[derive(Debug)]
-pub struct SeriesDb {
-    name: String,
-    create_time: DateTime<Utc>,
-    info_path: String,
+pub enum DbData{
+  Series(series_db::SeriesDb),
+  BlogSeries(BlogSeriesDb),
 }
 
-impl SeriesDb {
-    pub fn new(name: String, create_time: DateTime<Utc>, info_path: String) -> SeriesDb {
-        SeriesDb {
-            name,
-            create_time,
-            info_path,
-        }
-    }
+impl DbData {
+  pub fn new_series(name: String, create_time: DateTime<Utc>, info_path: String) -> Self {
+    DbData::Series(series_db::SeriesDb::new(name, create_time, info_path))
+  }
 
-    pub fn get_name(&self) -> String {
-        self.name.clone()
-    }
-
-    pub fn get_create_time(&self) -> DateTime<Utc> {
-        self.create_time.clone()
-    }
-
-    pub fn get_info_path(&self) -> String {
-        self.info_path.clone()
-    }
+  pub fn new_blog_series(name: String, create_time: DateTime<Utc>, info_path: String) -> Self {
+    DbData::BlogSeries(BlogSeriesDb::new(name, create_time, info_path))
+  }
 }
-
