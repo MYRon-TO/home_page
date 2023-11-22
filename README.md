@@ -4,18 +4,18 @@ Here is the source code of my blog
 **These code won't work on windows, I guess :(**
 
 ## Quick Start
-make sure you have installed node.js ,mysql and rust
+make sure you have installed [**node.js**](https://nodejs.org/en) ,[**mysql**](https://www.mysql.com/downloads/) and [**rust**](https://www.rust-lang.org/zh-CN/tools/install)
 
-### Init datebase
+### Init Datebase
 
 connect to mysql and run the following sql
 
-#### create database
+#### - create database
 ```sql
 CREATE DATABASE yuru;
 ```
 
-#### create user
+#### - create user
 ```sql
 -- I won't tell you my password :)
 CREATE USER 'user_can_read'@'localhost' IDENTIFIED BY 'password';
@@ -25,7 +25,7 @@ GRANT SELECT ON yuru.* TO 'user_can_read'@'localhost';
 GRANT ALL PRIVILEGES ON yuru.* TO 'user_can_write'@'localhost';
 ```
 
-#### fill the config
+#### - fill the config
 ```bash
 mv .config/config.toml.example .config/config.toml
 ```
@@ -35,7 +35,7 @@ vim ./config/config.toml
 ```
 
 ### Build
-==**make sure you are in the root directory of this project**==
+<font size=5rem color=red>**make sure you are in the root directory of this project**</font>
 ```bash
 cargo build --release
 cargo run --bin init_db
@@ -60,4 +60,3 @@ cargo run --bin backend
     - serde <!-- json parser -->
       - serde_json <!-- json parser -->
     - askama <!-- template engine -->
-
