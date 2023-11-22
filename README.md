@@ -31,7 +31,7 @@ mv .config/config.toml.example .config/config.toml
 ```
 choose a editor you like :)
 ```bash
-vim ./config/config.toml
+vim .config/config.toml
 ```
 
 ### Build
@@ -39,6 +39,10 @@ vim ./config/config.toml
 ```bash
 cargo build --release
 cargo run --bin init_db
+```
+
+### Run
+```bash
 cargo run --bin backend
 ```
 
