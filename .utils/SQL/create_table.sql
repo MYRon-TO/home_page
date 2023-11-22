@@ -1,7 +1,3 @@
-CREATE DATABASE yuru;
-
-USE yuru;
-
 CREATE TABLE IF NOT EXISTS series (
     name VARCHAR(255) PRIMARY KEY,
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -14,11 +10,15 @@ CREATE TABLE IF NOT EXISTS blog_series (
     create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     series VARCHAR(255),
     FOREIGN KEY (series) REFERENCES series(name)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
     );
 
-CREATE TABLE IF NOT EXISTS tag (
-    blog_id INT AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    PRIMARY KEY (blog_id, name),
+CREATE TABLE IF NOT EXISTS tag_blog (
+    tag VARCHAR(255) NOT NULL,
+    blog_id INT NOT NULL,
+    PRIMARY KEY (blog_id, tag),
     FOREIGN KEY (blog_id) REFERENCES blog_series(id)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
     );

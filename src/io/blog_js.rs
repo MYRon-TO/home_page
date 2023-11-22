@@ -13,17 +13,25 @@ pub struct BlogJs {
     title: String,
     desc: String,
     has_cover: bool,
+    series : String,
+    tag : Vec<String>,
 }
 
 impl BlogJs {
-  pub fn get_title(&self) -> &str {
-    &self.title
+  pub fn get_title(&self) -> String {
+    self.title.clone()
   }
-  pub fn get_desc(&self) -> &str {
-    &self.desc
+  pub fn get_desc(&self) -> String {
+    self.desc.clone()
   }
   pub fn get_has_cover(&self) -> bool {
     self.has_cover
+  }
+  pub fn get_series(&self) -> String {
+    self.series.clone()
+  }
+  pub fn get_tag(&self) -> &Vec<String> {
+    &self.tag
   }
 }
 

@@ -18,7 +18,7 @@ pub mod run {
     impl AppState {
         pub async fn init() -> Self {
             let config: Config = Config::new();
-            let db = Database::new(config.database.get()).await;
+            let db = Database::new(config.get()).await;
 
             Self {
                 database: Arc::new(Mutex::new(db)),

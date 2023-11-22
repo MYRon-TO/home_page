@@ -13,5 +13,12 @@
 
 [database]
   host = "localhost"
-  user = "user"
-  password = "password"
+  database = "yuru"
+
+[database_user]
+  user = "user/can/only/read"
+  password = "your/password"
+
+[database_manager]
+  user = "user/can/read/and/write"
+  password = "your/password"

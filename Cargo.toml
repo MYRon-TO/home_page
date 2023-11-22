@@ -5,6 +5,11 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "init_db"
+path = "src/bin/init_db/init_db.rs"
+
+
 [dependencies]
 # web framework
 tokio = {version="^1.0.0", features = ["full"]}
@@ -31,6 +36,9 @@ percent-encoding = "2.1" # url encode
 # log
 tracing = {version = "0.1"}
 tracing-subscriber = {version = "0.3", features = ["env-filter"]}
+
+# utils
+walkdir = "2"
 
 # development tools
 # listenfd = "1.0"
