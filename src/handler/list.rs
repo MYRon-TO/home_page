@@ -19,8 +19,14 @@ use list_item::*;
 pub enum ListType {
     Series,
     Tags,
-    All,
+    Blog,
     Nil,
+}
+
+pub enum QuestBlog {
+    All,
+    Series(String),
+    Tags(String),
 }
 
 /// 页面list的模板
@@ -56,6 +62,7 @@ impl List {
         match date {
             DbData::Series(series) => List::make_series_item(series).await,
             DbData::BlogSeries(blog_series) => List::make_blog_series_item(blog_series).await,
+            DbData::TagBlog(tag_blog) => List::make_tag_item(tag_blog).await,
         }
     }
 
@@ -74,14 +81,12 @@ impl List {
         let desc = series.get_desc();
         let cover = if series.get_has_cover() {
             let cover = get_cover(path.clone()).unwrap_or("".to_string());
-            format!(
-                "background-image: url({})",
-                cover
-            )
+            format!("background-image: url({})", cover)
         } else {
             "".to_string()
         };
-        let link = "todo: put a link here".to_string();
+        // let link = "todo: put a link here".to_string();
+        let link = format!("/list/series/{}", title);
 
         ListItem::new_series(title, cover, link, desc)
     }
@@ -96,17 +101,23 @@ impl List {
         let desc = blog.get_desc();
         let cover = if blog.get_has_cover() {
             let cover = get_cover(path.clone()).unwrap_or("".to_string());
-            format!(
-                "background-image: url({})",
-                cover
-            )
+            format!("background-image: url({})", cover)
         } else {
             "".to_string()
         };
-        let link = "todo: put a link here".to_string();
+        // let link = "todo: put a link here".to_string();
+        let link = format!("/blog.html?markdown={}", title);
 
         ListItem::new_series(title, cover, link, desc)
     }
+
+    async fn make_tag_item(data: crate::db::data::tag_blog_db::TagBlogDb) -> ListItem {
+        let title = data.get_name();
+        let link = format!("/list/tags/{}", title);
+
+        ListItem::new_tags(title, link)
+    }
+
 }
 
 pub fn is_hidden(entry: &DirEntry) -> bool {
@@ -117,7 +128,7 @@ pub fn is_hidden(entry: &DirEntry) -> bool {
         .unwrap_or(false)
 }
 
-pub fn get_cover(path: String)-> Option<String> {
+pub fn get_cover(path: String) -> Option<String> {
     let path = PathBuf::from(path.as_str());
     let path_dir = path.parent()?;
     let walker = WalkDir::new(path_dir).max_depth(1).into_iter();
@@ -128,12 +139,12 @@ pub fn get_cover(path: String)-> Option<String> {
             return Some(format!("/{}", entry.path().display().to_string()));
         }
     }
-    return None
+    return None;
 }
 
 /// ## handler for list page
 /// which_type: what kind of list
-/// 你应该传入[all, series, tags]
+/// 你应该传入[blog, series, tags]
 /// #### bug: 穷尽时返回all
 /// todo: 想办法让他返回fallback()
 /// 试试返回状态码
@@ -145,7 +156,20 @@ pub async fn list(
     match list_type.as_str() {
         "series" => list_handler::list_series(app_state).await,
         "tags" => list_handler::list_tags(app_state).await,
-        "all" => list_handler::list_all(app_state).await,
+        "blog" => list_handler::list_blog(app_state, QuestBlog::All).await,
+        _ => list_handler::list_nil().await,
+    }
+}
+
+#[debug_handler]
+pub async fn list_blog(
+    Path((list_type, blog_name)): Path<(String, String)>,
+    State(app_state): State<AppState>,
+) -> ListTemplate {
+    match list_type.as_str() {
+        "series" => list_handler::list_blog(app_state, QuestBlog::Series(blog_name)).await,
+        "tags" => list_handler::list_blog(app_state, QuestBlog::Tags(blog_name)).await,
+        "blog" => list_handler::list_blog(app_state, QuestBlog::All).await,
         _ => list_handler::list_nil().await,
     }
 }
