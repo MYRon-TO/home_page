@@ -34,4 +34,5 @@
   box-sizing: border-box;
   min-height: 50px;
   max-height: 100px;
+  overflow: hidden;
 }

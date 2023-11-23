@@ -91,34 +91,34 @@ html {
 
 @media screen and (max-width: 840px) {
   .card_image#left {
-    background-image: url('/yuru/assets/images/blog_list/top.jpg');
+    background-image: url('/assets/images/blog_list/top.jpg');
     background-position: bottom;
   }
 
   .card_image#center {
-    background-image: url('/yuru/assets/images/blog_list/middle.jpg');
+    background-image: url('/assets/images/blog_list/middle.jpg');
     background-position: center;
   }
 
   .card_image#right {
-    background-image: url('/yuru/assets/images/blog_list/bottom.jpg');
+    background-image: url('/assets/images/blog_list/bottom.jpg');
     background-position: top;
   }
 }
 
 @media screen and (min-width: 840px) {
   .card_image#left {
-    background-image: url('/yuru/assets/images/blog_list/left.jpg');
+    background-image: url('/assets/images/blog_list/left.jpg');
     background-position: right;
   }
 
   .card_image#center {
-    background-image: url('/yuru/assets/images/blog_list/center.jpg');
+    background-image: url('/assets/images/blog_list/center.jpg');
     background-position: center;
   }
 
   .card_image#right {
-    background-image: url('/yuru/assets/images/blog_list/right.jpg');
+    background-image: url('/assets/images/blog_list/right.jpg');
     background-position: left;
   }
 }
