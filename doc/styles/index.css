@@ -74,5 +74,17 @@ html {
   top: -8%;
   height: 5rem;
   width: 5rem;
-  /* z-index: 5; */
+}
+
+/* ## my-info */
+.my-info__title{
+  margin: auto 0;
+}
+
+.my-info__content{
+  margin: 0;
+}
+
+.my-info__button{
+  margin: 0;
 }
