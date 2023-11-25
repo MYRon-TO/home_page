@@ -6,29 +6,33 @@
   <!-- meta -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
+  <title>Yuru: {{- item.get_name() -}}</title>
 
   <!-- material design lite -->
-  <link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
-  <script src="node_modules/material-design-lite/material.min.js"></script>
-  <link href="node_modules/@material-design-icons/font/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+  <script src="/node_modules/material-design-lite/material.min.js"></script>
+  <link href="/node_modules/@material-design-icons/font/index.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/brands.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/solid.css">
 
   <!-- css -->
-  <link rel="stylesheet" href="styles/blog.css">
-  <link rel="stylesheet" href="styles/marked.css">
+  <link rel="stylesheet" href="/styles/blog.css">
+  <link rel="stylesheet" href="/styles/marked.css">
 
   <!-- scripts -->
-  <script src="node_modules/marked/marked.min.js"></script>
-  <script src="scripts/GetMD.js"></script>
+  <script src="/node_modules/marked/marked.min.js"></script>
+  <script src="/scripts/GetMD.js"></script>
 
   <!-- temp background color -->
   <style>
     html {
-      /* background: #f0f0f0; */
-      background: url(assets/images/Takina_blue.jpg) no-repeat center center fixed;
+      background: #f0f0f0;
+      {{- item.get_background() -}}
       background-size: cover;
-      /* filter: blur(5px); */
     }
+
     main {
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
@@ -40,12 +44,16 @@
 
 <body>
 
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+  <div class="mdl-layout
+    mdl-js-layout
+    mdl-layout--fixed-header
+    mdl-layout--no-desktop-drawer-button
+    ">
 
     <!-- # header -->
     <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top"> -->
-    <!-- <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--transparent"> -->
-    <header class="mdl-layout__header mdl-layout__header--waterfall">
+    <header class="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--transparent transparent-header">
+      <!-- <header class="mdl-layout__header mdl-layout__header--waterfall"> -->
 
       <!-- ## title -->
       <div class="mdl-layout__header-row">
@@ -54,10 +62,13 @@
 
         <!-- this will hide in small screen -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+          <a class="header-nav__link mdl-navigation__link" id="home" href="/"><i class="material-icons">home</i>首页</a>
+          <a class="header-nav__link mdl-navigation__link" id="blog" href="/blog_list.html"><i
+              class="material-icons">article</i>博客</a>
+          <a class="header-nav__link mdl-navigation__link" id="link" href="/friend.html"><i
+              class="material-icons">group</i>友链</a>
+          <a class="header-nav__link mdl-navigation__link" id="about" href="/about.html"><i
+              class="material-icons">info</i>关于</a>
         </nav>
       </div>
 
@@ -77,10 +88,10 @@
         传送门
       </div>
       <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+        <a class="mdl-navigation__link" href="/">首页</a>
+        <a class="mdl-navigation__link" href="/blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="/friend.html">友链</a>
+        <a class="mdl-navigation__link" href="/about.html">关于</a>
       </nav>
     </div>
 
@@ -91,8 +102,7 @@
 
             mdl-color--white
             mdl-shadow--2dp
-          "
-          style="
+          " style="
             width: 100%;
             height: auto;
         ">
@@ -105,7 +115,7 @@
           blog_cover
 
           ">
-            <img src="assets/images/Takina_blue.jpg"/>
+            <img src="{{ item.get_cover() }}" />
           </div>
 
           <!-- path -->
@@ -116,9 +126,9 @@
           blog_bar
           ">
             <div class="blog_path ">
-              <a href="index.html">Home</a>
+              <a href="/blog_list.html">博客</a>
               <span>&gt;</span>
-              <a href="blog_list.html">Blog</a>
+              <a href="/list/series/{{-item.get_series()-}}">{{-item.get_series()-}}</a>
               <span>&gt;</span>
               <a id="blog_path-this" href="#"></a>
             </div>
@@ -146,19 +156,21 @@
             <div class="my_image mdl-shadow--2dp"></div>
             <div class="blog_info">
               <strong>Myron</strong>
-              <span>1945/10/01</span>
+              <span>{{-item.get_update_time()-}}</span>
             </div>
             <div class="section-spacer"></div>
-            <div class="blog_icon">
-              <span style="padding-right: 5px">114</span>
-              <i class="material-icons">favorite</i>
-            </div>
-            <div class="blog_icon">
-              <i class="material-icons">bookmark</i>
-            </div>
-            <div class="blog_icon">
+            <button class="
+                mdl-button
+                mdl-js-button
+                mdl-button--icon
+                blog_icon
+              "
+              onclick="window.navigator.share({
+                title: document.title,
+                url: window.location.href,
+              });">
               <i class="material-icons">share</i>
-            </div>
+            </button>
           </div>
 
         </div>
@@ -167,9 +179,9 @@
           blog_bar
           blog_bar-goback
           ">
-          <a class="
+          <div class="
         blog_bar-goback-item
-        " href="index.html">
+        " onclick="window.history.back();">
             <button class="
           mdl-button
           mdl-js-button
@@ -187,7 +199,7 @@
             </button>
             <!-- <span style="padding-bottom: 0;">Go Back</span> -->
             Go Back
-          </a>
+          </div>
           <div class="section-spacer"></div>
           <!-- <div class="blog_bar-item"> -->
           <!--   <i class="material-icons">arrow_forward</i> -->
@@ -195,13 +207,12 @@
         </div>
       </div>
 
-      <footer class="mdl-mini-footer">
+      <footer class="mdl-mini-footer" style="display: flex;">
         <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">Title</div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
-            <li><a href="https://www.github.com">github</a></li>
-          </ul>
+          <div class="mdl-logo">
+            write in <i class="fa-brands fa-apple"></i> and <i class="fa-brands fa-vimeo-v"></i> with <i
+              class="fa-solid fa-heart"></i>
+          </div>
         </div>
       </footer>
 
@@ -212,15 +223,17 @@
 
 </body>
 
-<script src="scripts/GetMD.js" onload="
+<script src="/scripts/GetMD.js" onload="
   // 获取查询字符串
-  let url = window.location.search;
+  // let url = window.location.search;
   // 解析查询字符串为对象
-  let params = new URLSearchParams(url);
+  // let params = new URLSearchParams(url);
   // 获取参数值
-  let markdown = params.get('markdown');
+  // let markdown = params.get('markdown');
   // console.log(markdown);
-  getMd(markdown);
+  // getMd(markdown);
+  // getMd(markdown);
+  getMd(`{{-item.get_name()-}}`);
 "></script>
 
 </html>

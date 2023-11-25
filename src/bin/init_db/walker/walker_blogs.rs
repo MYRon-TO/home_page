@@ -14,15 +14,14 @@ pub async fn walk_blogs(db: Arc<Mutex<Database>>) -> Result<(), Box<dyn std::err
       // 查找info.json
       if entry.file_name() == "info.json" {
 
-        // println!("{}", entry.path().display());
-
         let info_path = entry.path().display().to_string();
         let js = blog_js::get_blog_json(&info_path).await?; // 读取博客json文件
         let series = js.get_series().to_string();
         let tags = js.get_tag().to_vec();
+        let title = js.get_title().to_string();
 
         // 写入数据库
-        db.write_blogs_series(&info_path, &series).await?;
+        db.write_blogs_series(&info_path, &series, &title).await?;
         let blog_id = db.get_blog_id(&info_path).await?;
         db.write_tag_blog(blog_id, &tags).await?;
 

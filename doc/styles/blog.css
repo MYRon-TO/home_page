@@ -68,7 +68,8 @@
 .blog_icon {
   display: flex;
   align-items: center;
-  padding: 0 3px;
+  padding: auto 3px;
+  margin: auto 0;
 }
 
 /* ## go back bar */
@@ -88,7 +89,7 @@
 .my_image {
    background: no-repeat center center;
    background-size: cover;
-   background-image: url('/yuru/doc/assets/images/icon_480x480.png');
+   background-image: url('/assets/images/icon_480x480.png');
    height: 44px;
    width: 44px;
 
@@ -99,4 +100,10 @@
 
 .section-spacer{
   flex-grow: 1;
+}
+
+.transparent-header{
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }

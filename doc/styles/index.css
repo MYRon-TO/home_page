@@ -78,13 +78,44 @@ html {
 
 /* ## my-info */
 .my-info__title{
-  margin: auto 0;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.my-info__title-text{
+  font-size: 4.5rem;
+  /* text-decoration: underline; */
+}
+
+.my-info__title-support-text{
+  padding-left: 1.5rem;
+  font-size: 2rem;
+  color: #2c3e30;
+  padding-bottom: 0.5rem;
+  /* text-decoration: underline; */
 }
 
 .my-info__content{
   margin: 0;
+  margin-top: 0;
+  margin-bottom: auto;
+  padding-top: 0.3rem;
+}
+
+.my-info__content-support-text{
+  font-size: 2rem;
+  color: #2c3e30;
 }
 
 .my-info__button{
   margin: 0;
 }
+
+.my-info__button a{
+  text-decoration: none;
+}
+
+/* .my-info__button a button{ */
+  /* color: black; */
+/* } */

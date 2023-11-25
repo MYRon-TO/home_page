@@ -10,9 +10,9 @@
 
   <meta property="og:title" content="Yuru">
   <meta property="og:description" content="Yuru: Myron's Blog">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="/assets/images/jellyfish.png">
 
-  <link rel="icon" href="" type="image/x-icon" />
+  <link rel="icon" href="/assets/images/jellyfish.png" type="image/x-icon" />
 
   <title>Yuru</title>
 
@@ -26,9 +26,9 @@
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/card.css">
 
-  <!-- <style> -->
-  <!--   @import "https://www.nerdfonts.com/assets/css/webfont.css" -->
-  <!-- </style> -->
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/brands.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/solid.css">
 
 </head>
 
@@ -46,13 +46,12 @@
 
         <!-- this will hide in small screen -->
         <nav class="mdl-navigation mdl-layout--large-screen-only header-nav">
-          <a class="header-nav__link mdl-navigation__link" id="home" href="index.html"><i
-              class="material-icons">home</i>首页</a>
-          <a class="header-nav__link mdl-navigation__link" id="blog" href="blog_list.html"><i
+          <a class="header-nav__link mdl-navigation__link" id="home" href="/"><i class="material-icons">home</i>首页</a>
+          <a class="header-nav__link mdl-navigation__link" id="blog" href="/blog_list.html"><i
               class="material-icons">article</i>博客</a>
-          <a class="header-nav__link mdl-navigation__link" id="link" href="friend.html"><i
+          <a class="header-nav__link mdl-navigation__link" id="link" href="/friend.html"><i
               class="material-icons">group</i>友链</a>
-          <a class="header-nav__link mdl-navigation__link" id="about" href="about.html"><i
+          <a class="header-nav__link mdl-navigation__link" id="about" href="/about.html"><i
               class="material-icons">info</i>关于</a>
         </nav>
       </div>
@@ -66,10 +65,10 @@
         传送门
       </div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="index.html">首页</a>
-        <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-        <a class="mdl-navigation__link" href="friend.html">友链</a>
-        <a class="mdl-navigation__link" href="about.html">关于</a>
+        <a class="mdl-navigation__link" href="/">首页</a>
+        <a class="mdl-navigation__link" href="/blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="/friend.html">友链</a>
+        <a class="mdl-navigation__link" href="/about.html">关于</a>
       </nav>
     </div>
 
@@ -116,15 +115,43 @@
           my-info
           ">
           <div class="mdl-card__title my-info__title">
-            <div class="mdl-card__title-text">here is title</div>
+            <div class="mdl-card__title-text my-info__title-text">
+              Myron
+            </div>
+
+            <div class="
+                mdl-card__title-text
+                mdl-layout--large-screen-only
+                my-info__title-support-text
+              ">
+              MYRon-TO
+            </div>
           </div>
+          <hr style="
+          width: 70%;
+          margin: 0;
+          /* margin-top: -0.5rem; */
+          margin-left: 1rem;
+          ">
           <div class="mdl-card__supporting-text my-info__content">
-            here is content
+            <div class="
+                mdl-card__title-text
+                mdl-layout--small-screen-only
+                my-info__content-support-text
+              ">
+              MYRon-TO
+            </div>
+            A Educational Technology Student in NanJing, China.
           </div>
           <div class="mdl-card__actions mdl-card--border my-info__button">
-            <a>
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                <i class="material-icons">add</i>
+            <a href="mailto:MYRon_TO@outlook.com">
+              <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--icon">
+                <i class="material-icons">email</i>
+              </button>
+            </a>
+            <a href="https://github.com/MYRon-TO">
+              <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--icon">
+                <i class="fa-brands fa-github"></i>
               </button>
             </a>
           </div>
@@ -150,7 +177,13 @@
             mdl-js-ripple-effect
 
             about-me-card__button
-          ">
+          "
+          onclick="window.navigator.share({
+            title: document.title,
+            url: window.location.href,
+          });
+          "
+          >
             <i class="material-icons" style="color: white;">share</i>
             <!-- <span class="mdl-button__ripple-container"> -->
             <!--   <span class="mdl-ripple"></span> -->
@@ -181,19 +214,19 @@
           mdl-shadow--2dp
         ">
           <div class="mdl-card__title card_image" style="
-            background-image: url('assets/images/Takina_blue.jpg')
+            background-image: url('/assets/blogs/韻/cover.jpg')
           ">
             <h2 class="mdl-card__title-text card_image_text">
-              here is a title &nbsp;<!-- 让阴影显示完全 -->
+              韻 &nbsp;<!-- 让阴影显示完全 -->
             </h2>
           </div>
           <div class="mdl-card__supporting-text">
-            this text might describe the photo
+            诗词鉴赏与写作的笔记，韻
           </div>
           <div class="mdl-card__actions mdl-card--border">
-            <a href="blog.html?markdown=数据通信系统">
+            <a href="/blog/韻">
               <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
-                value="click me">
+                value="了解详情">
             </a>
           </div>
         </div>
@@ -203,11 +236,10 @@
       <!-- ## footer -->
       <footer class="mdl-mini-footer" style="display: flex;">
         <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">Title</div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="https://www.njupt.edu.cn">NJUPT</a></li>
-            <li><a href="https://www.github.com">github</a></li>
-          </ul>
+          <div class="mdl-logo">
+            create in <i class="fa-brands fa-linux"></i> and <i class="fa-brands fa-apple"></i> with <i
+              class="fa-solid fa-heart"></i>
+          </div>
         </div>
       </footer>
 

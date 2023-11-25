@@ -22,6 +22,10 @@
     .grid_card {
       padding: 5% 10%;
     }
+
+    main {
+      background: #f0f0f0;
+    }
   </style>
 
 </head>
@@ -41,10 +45,13 @@
 
         <!-- this will hide in small screen -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="index.html">首页</a>
-          <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-          <a class="mdl-navigation__link" href="friend.html">友链</a>
-          <a class="mdl-navigation__link" href="about.html">关于</a>
+          <a class="header-nav__link mdl-navigation__link" id="home" href="/"><i class="material-icons">home</i>首页</a>
+          <a class="header-nav__link mdl-navigation__link" id="blog" href="/blog_list.html"><i
+              class="material-icons">article</i>博客</a>
+          <a class="header-nav__link mdl-navigation__link" id="link" href="/friend.html"><i
+              class="material-icons">group</i>友链</a>
+          <a class="header-nav__link mdl-navigation__link" id="about" href="/about.html"><i
+              class="material-icons">info</i>关于</a>
         </nav>
       </div>
 
@@ -57,10 +64,10 @@
         传送门
       </div>
       <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="index.html">首页</a>
-        <a class="mdl-navigation__link" href="blog_list.html">博客</a>
-        <a class="mdl-navigation__link" href="friend.html">友链</a>
-        <a class="mdl-navigation__link" href="about.html">关于</a>
+        <a class="mdl-navigation__link" href="/">首页</a>
+        <a class="mdl-navigation__link" href="/blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="/friend.html">友链</a>
+        <a class="mdl-navigation__link" href="/about.html">关于</a>
       </nav>
     </div>
 
@@ -74,8 +81,8 @@
         <!-- here put the cards -->
         {% match list_type %}
         {% when ListType::Series %}
-          {% for item in items.content %}
-          <div class="
+        {% for item in items.content %}
+        <div class="
             mdl-cell
             mdl-cell--12-col
             mdl-cell--8-col-tablet
@@ -84,27 +91,27 @@
             mdl-card
             mdl-shadow--2dp
             ">
-            <a class="card_link" href={{ item.get_link() }}>
-              <div class="
+          <a class="card_link" href={{ item.get_link() }}>
+            <div class="
               mdl-card__title
               card_image
               " style="
                 {{ item.get_cover() }}
               ">
-                <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.get_title() }}&nbsp;
-                  <!-- 让阴影显示完全 -->
-                </h2>
-              </div>
-            </a>
-            <div class="mdl-card__supporting-text">
-              {{ item.get_desc() }}
+              <h2 class="mdl-card__title-text card_image_text">
+                {{ item.get_title() }}&nbsp;
+                <!-- 让阴影显示完全 -->
+              </h2>
             </div>
+          </a>
+          <div class="mdl-card__supporting-text">
+            {{ item.get_desc() }}
           </div>
-          {% endfor %}
+        </div>
+        {% endfor %}
         {% when ListType::Blog %}
-          {% for item in items.content %}
-          <div class="
+        {% for item in items.content %}
+        <div class="
             mdl-cell
             mdl-cell--6-col
             mdl-cell--4-col-tablet
@@ -113,27 +120,27 @@
             mdl-card
             mdl-shadow--2dp
             ">
-            <a class="card_link" href={{ item.get_link() }}>
-              <div class="
+          <a class="card_link" href={{ item.get_link() }}>
+            <div class="
               mdl-card__title
               card_image
               " style="
                 {{ item.get_cover() }}
               ">
-                <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.get_title() }}&nbsp;
-                  <!-- 让阴影显示完全 -->
-                </h2>
-              </div>
-            </a>
-            <div class="mdl-card__supporting-text">
-              {{ item.get_desc() }}
+              <h2 class="mdl-card__title-text card_image_text">
+                {{ item.get_title() }}&nbsp;
+                <!-- 让阴影显示完全 -->
+              </h2>
             </div>
+          </a>
+          <div class="mdl-card__supporting-text">
+            {{ item.get_desc() }}
           </div>
-          {% endfor %}
+        </div>
+        {% endfor %}
         {% when ListType::Tags %}
-          {% for item in items.content %}
-          <div class="
+        {% for item in items.content %}
+        <div class="
             mdl-cell
             mdl-cell--3-col
             mdl-cell--4-col-tablet
@@ -141,25 +148,22 @@
 
             mdl-card
             mdl-shadow--2dp
-            ">
-            <a class="card_link" href={{ item.get_link() }}>
-              <div class="
+            " style="min-height: 0;">
+          <a class="card_link" href={{ item.get_link() }}>
+            <div class="
               mdl-card__title
-              card_image
-              " style="
-                {{ item.get_cover() }}
               ">
-                <h2 class="mdl-card__title-text card_image_text">
-                  {{ item.get_desc() }}&nbsp;
-                  <!-- 让阴影显示完全 -->
-                </h2>
+              <div class="mdl-card__title-text" style="
+                  padding: auto;
+                  margin: auto;
+                  height: 100%;
+                ">
+                #{{ item.get_title() }}
               </div>
-            </a>
-            <div class="mdl-card__supporting-text">
-              {{ item.get_title() }}
             </div>
-          </div>
-          {% endfor %}
+          </a>
+        </div>
+        {% endfor %}
         {% when ListType::Nil %}
         {% endmatch %}
 

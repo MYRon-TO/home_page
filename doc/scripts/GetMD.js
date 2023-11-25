@@ -31,7 +31,7 @@ function changePath_pic(text, md_name) {
     let result = text;
     // fix links path
     const reg_get_path = new RegExp("\\[(.*)\\]\\((?!https://|http://)(?:.*)/(.*).md\\)", "mg");
-    result = result.replace(reg_get_path, "[$1](/blog.html?markdown=$2)");
+    result = result.replace(reg_get_path, "[$1](/blog/$2)");
 
     // fix pictures path
     const reg_pic = new RegExp("!\\[(.*)\\]\\((?!https://\|http://)./(.*)\\)", "mg");

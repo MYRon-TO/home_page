@@ -23,6 +23,7 @@ async fn main() {
         .nest_service("/", ServeDir::new("./doc"))
         .route("/list/:type", get(handler::list::list))
         .route("/list/:type/:name", get(handler::list::list_blog))
+        .route("/blog/:name", get(handler::blog::blog))
         .with_state(app_state)// 设置共享状态
         .layer(TraceLayer::new_for_http()) // 打印请求日志? 不知道是干嘛的
         .fallback(handler::fallback);

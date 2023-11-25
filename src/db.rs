@@ -32,13 +32,6 @@ impl Database {
         Database { pool }
     }
 
-    // async fn execute_query(&self, query: &str) -> Result<(), sqlx::Error> {
-    //     match sqlx::query(query).execute(&self.pool).await {
-    //         Ok(_) => Ok(()),
-    //         Err(e) => Err(e),
-    //     }
-    // }
-
     async fn select(&self, query: &str) -> Result<Vec<sqlx::mysql::MySqlRow>, sqlx::Error> {
         Ok(sqlx::query(query).fetch_all(&self.pool).await?)
     }
@@ -49,7 +42,7 @@ impl Database {
     /// ```
     /// pub struct SeriesDb {
     ///     name: String,
-    ///     create_time: DateTime<Utc>,
+    ///     update_time: DateTime<Utc>,
     ///     info_path: String,
     /// }
     /// ```
@@ -61,9 +54,9 @@ impl Database {
         if let Ok(rows) = self.select(query).await {
             for row in rows {
                 let name: String = row.get::<String, _>("name");
-                let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
+                let update_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("update_time");
                 let info_path: String = row.get::<String, _>("info_path");
-                data.push(DbData::new_series(name, create_time, info_path));
+                data.push(DbData::new_series(name, update_time, info_path));
             }
         }
         return data;
@@ -77,10 +70,11 @@ impl Database {
 
         if let Ok(rows) = self.select(query).await {
             for row in rows {
+                let name: String = row.get::<String, _>("name");
                 let series: String = row.get::<String, _>("series");
-                let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
+                let update_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("update_time");
                 let info_path: String = row.get::<String, _>("info_path");
-                data.push(DbData::new_blog_series(info_path, create_time, series));
+                data.push(DbData::new_blog_series(info_path, update_time, series, name));
             }
         }
         return data;
@@ -107,10 +101,11 @@ impl Database {
 
         if let Ok(rows) = self.select(query.as_str()).await {
             for row in rows {
+                let name: String = row.get::<String, _>("name");
                 let series: String = row.get::<String, _>("series");
-                let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
+                let update_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("update_time");
                 let info_path: String = row.get::<String, _>("info_path");
-                data.push(DbData::new_blog_series(info_path, create_time, series));
+                data.push(DbData::new_blog_series(info_path, update_time, series, name));
             }
         }
         return data;
@@ -118,18 +113,32 @@ impl Database {
 
 
     pub async fn get_blog_from_tag(&self, tag: &str) -> Vec<DbData> {
-        let query = format!("SELECT info_path,create_time,series FROM tag_blog,blog_series WHERE tag_blog.blog_id=blog_series.id AND tag='{}';", tag);
+        let query = format!("SELECT info_path,update_time,series,name FROM tag_blog,blog_series WHERE tag_blog.blog_id=blog_series.id AND tag='{}';", tag);
 
         let mut data: Vec<DbData> = vec![];
 
         if let Ok(rows) = self.select(query.as_str()).await {
             for row in rows {
+                let name: String = row.get::<String, _>("name");
                 let series: String = row.get::<String, _>("series");
-                let create_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("create_time");
+                let update_time: DateTime<Utc> = row.get::<DateTime<Utc>, _>("update_time");
                 let info_path: String = row.get::<String, _>("info_path");
-                data.push(DbData::new_blog_series(info_path, create_time, series));
+                data.push(DbData::new_blog_series(info_path, update_time, series, name));
             }
         }
         return data;
+    }
+
+    pub async fn get_blog_from_name(&self, name: &str) -> Option<DbData> {
+        let query = format!("SELECT * FROM blog_series WHERE name = '{}'", name);
+
+        if let Ok(rows) = self.select(query.as_str()).await{
+          let row = rows.get(0);
+          let series: String = row?.get::<String, _>("series");
+          let update_time: DateTime<Utc> = row?.get::<DateTime<Utc>, _>("update_time");
+          let info_path: String = row?.get::<String, _>("info_path");
+          return Some(DbData::new_blog_series(info_path, update_time, series, name.to_string()));
+        }
+        None
     }
 }

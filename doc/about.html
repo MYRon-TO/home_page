@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yuru: Myron's Blog">
+
+  <meta property="og:title" content="Yuru">
+  <meta property="og:description" content="Yuru: Myron's Blog">
+  <meta property="og:image" content="/assets/images/jellyfish.png">
+
+  <title>Yuru: About</title>
+
+  <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+  <link rel="stylesheet" href="/node_modules/@material-design-icons/font/index.css">
+  <script src="/node_modules/material-design-lite/material.min.js"></script>
+
+  <link rel="stylesheet" href="/node_modules/sakana-widget/lib/sakana.min.css" />
+  <link rel="stylesheet" href="/styles/about.css" />
+
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/fontawesome.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/brands.css">
+  <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/solid.css">
+
+  <script>
+    function initSakanaWidget() {
+      new SakanaWidget().mount('#sakana-widget');
+    }
+  </script>
+
+  <script async onload="initSakanaWidget()" src="node_modules/sakana-widget/lib/sakana.min.js">
+  </script>
+
+</head>
+
+<body>
+
+  <div id="sakana-widget"></div>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
+
+    <!-- # header -->
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
+
+      <!-- ## title -->
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">关于</span>
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- this will hide in small screen -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only header-nav">
+          <a class="header-nav__link mdl-navigation__link" id="home" href="/"><i class="material-icons">home</i>首页</a>
+          <a class="header-nav__link mdl-navigation__link" id="blog" href="/blog_list.html"><i
+              class="material-icons">article</i>博客</a>
+          <a class="header-nav__link mdl-navigation__link" id="link" href="/friend.html"><i
+              class="material-icons">group</i>友链</a>
+          <a class="header-nav__link mdl-navigation__link" id="about" href="/about.html"><i
+              class="material-icons">info</i>关于</a>
+        </nav>
+      </div>
+
+    </header>
+
+    <!-- ## link -->
+    <!-- this will hide in large screen -->
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <div class="mdl-layout-title">
+        传送门
+      </div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="/">首页</a>
+        <a class="mdl-navigation__link" href="/blog_list.html">博客</a>
+        <a class="mdl-navigation__link" href="/friend.html">友链</a>
+        <a class="mdl-navigation__link" href="/about.html">关于</a>
+      </nav>
+    </div>
+
+    <!-- ## tooltip -->
+    <div class="mdl-tooltip mdl-tooltip--large" for="home">
+      <span>首页</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="blog">
+      <span>我的博客</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="link">
+      <span>我的好友们</span>
+    </div>
+    <div class="mdl-tooltip mdl-tooltip--large" for="about">
+      <span>关于我</span>
+    </div>
+
+
+    <main class="mdl-layout__content">
+      <artical>
+
+      </artical>
+      <footer class="mdl-mini-footer" style="display: flex;">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            create in <i class="fa-brands fa-linux"></i> and <i class="fa-brands fa-apple"></i> with <i
+              class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+</body>
+
+</html>

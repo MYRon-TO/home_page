@@ -33,7 +33,7 @@ impl Database {
         let sql_1 = r#"
 CREATE TABLE IF NOT EXISTS series (
     name VARCHAR(255) PRIMARY KEY,
-    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     info_path VARCHAR(255) NOT NULL
     );
        "#;
@@ -41,8 +41,9 @@ CREATE TABLE IF NOT EXISTS series (
         let sql_2 = r#"
 CREATE TABLE IF NOT EXISTS blog_series (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL UNIQUE,
     info_path VARCHAR(255) NOT NULL,
-    create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     series VARCHAR(255),
     FOREIGN KEY (series) REFERENCES series(name)
       ON DELETE CASCADE
@@ -88,10 +89,11 @@ CREATE TABLE IF NOT EXISTS tag_blog (
         &mut self,
         info_path: &String,
         series: &String,
+        name: &String,
     ) -> Result<(), Box<dyn std::error::Error>> {
         let sql = format!(
-            "INSERT INTO blog_series (info_path, series) VALUES ('{}', '{}')",
-            info_path, series
+            "INSERT INTO blog_series (info_path, series, name) VALUES ('{}', '{}', '{}')",
+            info_path, series, name
         );
 
         self.do_sql(sql).await?;
