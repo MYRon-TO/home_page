@@ -57,6 +57,8 @@ cargo run --bin backend
     - material design <!-- css framework -->
         - material design icons
         - material desifn lite
+    - highlight.js <!-- code highlight -->
+    - sakana-widget <!-- a widget -->
 - rust
   - cargo
     - axum <!-- web framework -->

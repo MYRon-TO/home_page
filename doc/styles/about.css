@@ -3,3 +3,13 @@
   bottom: 20px;
   right: 15px;
 }
+
+
+.thanks p {
+  font-size: 1.25rem;
+  /* padding-left: 3rem; */
+}
+
+.thanks p a {
+  text-decoration: none
+}

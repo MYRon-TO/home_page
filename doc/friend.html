@@ -13,14 +13,14 @@
 
   <title>Yuru: Link</title>
 
-  <!-- my css -->
-  <link rel="stylesheet" href="/styles/about.css" />
-
   <!-- material-design-lite -->
   <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
   <link rel="stylesheet" href="/node_modules/@material-design-icons/font/index.css">
   <script src="node_modules/material-design-lite/material.min.js"></script>
 
+  <!-- my css -->
+  <link rel="stylesheet" href="/styles/card.css" />
+  <link rel="stylesheet" href="/styles/friend.css" />
 
   <!-- fontawesome -->
   <link rel="stylesheet" href="/assets/fontawesome-free-6.4.2-web/css/fontawesome.css">
@@ -112,11 +112,12 @@
 
           mdl-card
           mdl-shadow--2dp
+        " style="
+          min-height: 0;
         ">
           <div class="mdl-card__title mdl-card--border">
             <i class="material-icons">info</i>
-            <h2 class="mdl-card__title-text"
-              style="padding-left: 1rem;" >
+            <h2 class="mdl-card__title-text" style="padding-left: 1rem;">
               关于友链
             </h2>
           </div>
@@ -126,23 +127,51 @@
               如果想
               <a href="mailto:MYron_TO@outlook.com" style="text-decoration: none">
                 交换友链,请发Email
-              <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-envelope"></i>
               </a>
               并附上你的网站信息。
             </p>
-            <p style="font-size: 1.25rem;">
-              样例：
-              <pre>
-                <code>
-                  {
-                    "name": "Yuru",
-                    "url": "https://yuru.moe",
-                  }
-                </code>
-              </pre>
-            </p>
+            <!-- <p style="font-size: 1.25rem;"> -->
+            <!--   样例： -->
+            <!--   <pre> -->
+            <!--     <code> -->
+            <!--       { -->
+            <!--         "name": "Yuru", -->
+            <!--         "url": "https://yuru.moe", -->
+            <!--       } -->
+            <!--     </code> -->
+            <!--   </pre> -->
+            <!-- </p> -->
           </div>
         </div>
+
+        <div class="
+          mdl-cell
+          mdl-cell--6-col
+          mdl-cell--4-col-tablet
+          mdl-cell--4-col-phone
+
+          mdl-card
+          mdl-shadow--2dp
+        ">
+          <div class="mdl-card__title card_image" style="
+            background-image: url('/assets/images/Takina_blue.jpg')
+          ">
+            <h2 class="mdl-card__title-text card_image_text">
+              Myron &nbsp;<!-- 让阴影显示完全 -->
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            你猜是谁?我自己~
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a href="/">
+              <input type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
+                value="过去瞧瞧">
+            </a>
+          </div>
+        </div>
+
       </div>
       <footer class="mdl-mini-footer" style="display: flex;">
         <div class="mdl-mini-footer__left-section">
