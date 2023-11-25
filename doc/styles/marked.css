@@ -2,14 +2,16 @@
 
 /* ### set blog article font size */
 .blog_artical * {
-  padding: 0;
+  /* padding: 0; */
   text-align: justify;
+
+  font-size: 1.3rem;
 }
 
 /* ### p */
-.blog_artical p {
-  font-size: 1.2rem;
-}
+/* .blog_artical p { */
+  /* font-size: 1.2rem; */
+/* } */
 
 /* ### strong */
 /* .blog_artical strong { */
