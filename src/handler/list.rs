@@ -36,6 +36,7 @@ impl ListTemplate {
             list_type,
         }
     }
+
 }
 
 pub struct List {
@@ -46,6 +47,11 @@ impl List {
     /// append a item to list
     pub async fn append(&mut self, item: ListItem) {
         self.content.push(item);
+    }
+
+    /// true -> empty
+    pub fn is_empty(&self) -> bool {
+      self.content.is_empty()
     }
 
     pub async fn deal_db_date(date: DbData) -> ListItem {

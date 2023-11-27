@@ -83,6 +83,7 @@
       <div class="mdl-grid grid_card">
 
         <!-- here put the cards -->
+        {% if !items.is_empty() %}
         {% match list_type %}
         {% when ListType::Series %}
         {% for item in items.content %}
@@ -173,7 +174,7 @@
             mdl-cell
             mdl-cell--12-col
             mdl-cell--8-col-tablet
-            mdl-cell--2-col-phone
+            mdl-cell--4-col-phone
 
             mdl-card
             mdl-shadow--2dp
@@ -206,6 +207,31 @@
           </div>
         </div>
         {% endmatch %}
+        {% else %}
+        <div class="
+            mdl-cell
+            mdl-cell--12-col
+            mdl-cell--8-col-tablet
+            mdl-cell--4-col-phone
+
+            mdl-card
+            mdl-shadow--2dp
+            " style="min-height: 0;">
+          <div class="card_link" onclick="window.history.back();">
+            <div class="
+              mdl-card__title
+              ">
+              <div class="mdl-card__title-text" style="
+                  padding: auto;
+                  margin: auto;
+                  height: 100%;
+                ">
+                Here's Nothing. Click me to go back.
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
 
       </div>
 
