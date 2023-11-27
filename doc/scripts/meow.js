@@ -2,7 +2,7 @@
  // "use strict";
  function findNearestBlock(e) {
    for (let t = !0; t;) {
-     let r = e;
+     const r = e;
      if (t = !1, null === r || r === document.body) return null;
      let n = getComputedStyle(r);
      if ("svg" !== r.tagName && "inline" !== n.display) return r;

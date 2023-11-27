@@ -37,13 +37,14 @@ vim .config/config.toml
 ### Build
 <font size=5rem color=red>**make sure you are in the root directory of this project**</font>
 ```bash
-cargo build --release
-cargo run --bin init_db
+cargo build --release --bin backend
+cargo build --release --bin init_db
 ```
 
 ### Run
 ```bash
-cargo run --bin backend
+cargo run --release --bin init_db
+cargo run --release --bin backend
 ```
 
 ## What I use
@@ -57,12 +58,14 @@ cargo run --bin backend
     - material design <!-- css framework -->
         - material design icons
         - material desifn lite
-    - highlight.js <!-- code highlight -->
     - sakana-widget <!-- a widget -->
+- fontawesome <!-- icon font -->
 - rust
   - cargo
     - axum <!-- web framework -->
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
       - serde_json <!-- json parser -->
+    - toml
     - askama <!-- template engine -->
+    - walkdir
