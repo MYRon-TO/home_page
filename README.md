@@ -1,4 +1,13 @@
-# yuru
+<h1>
+    <a href="https://github.com/MYRon-TO/yuru" style="font-size: 2.8rem; display: flex; align-items: center;
+    ">
+    <img src="./assets/images/jellyfish.png" width="70px" height="70px" alt="yuru">
+            yuru
+    </a>
+</h1>
+
+---
+
 Here is the source code of my blog
 
 **These code won't work on windows, I guess :(**
@@ -17,7 +26,7 @@ CREATE DATABASE yuru;
 
 #### - create user
 ```sql
--- I won't tell you my password :)
+-- I won't show you my password :)
 CREATE USER 'user_can_read'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'user_can_write'@'localhost' IDENTIFIED BY 'password';
 
@@ -48,13 +57,13 @@ cargo run --release --bin backend
 ```
 
 ## What I use
-- apache(or lighttpd)
+- ~~apache(or lighttpd)~~
 - mysql
 - node.js
   - npm
-    - typescript <!-- actually, i didn't use it -->
+    - ~~typescript~~ <!-- actually, i didn't use it -->
     - marked <!-- markdown parser -->
-    - husky <!-- git hook -->
+    - ~~husky~~ <!-- git hook -->
     - material design <!-- css framework -->
         - material design icons
         - material desifn lite
