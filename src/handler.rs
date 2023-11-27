@@ -1,15 +1,19 @@
 //! 这里是页面的处理函数
-pub mod list;
 pub mod blog;
+pub mod list;
 
-use std::path::PathBuf;
-use axum::http::StatusCode;
 use crate::db::data::{blog_series_db::BlogSeriesDb, series_db::SeriesDb, DbData};
 use crate::io::{blog_js::get_blog_json, series_js::get_series_json};
 use crate::run::AppState;
+
 use askama::Template;
-use axum::debug_handler;
-use axum::extract::{Path, State};
+use axum::{
+    debug_handler,
+    extract::{Path, State},
+    http::StatusCode,
+};
+
+use std::path::PathBuf;
 use walkdir::{DirEntry, WalkDir};
 
 pub fn is_hidden(entry: &DirEntry) -> bool {
@@ -33,7 +37,6 @@ pub fn get_cover(path: String) -> Option<String> {
     }
     return None;
 }
-
 
 // todo: 404 page
 pub async fn fallback() -> (StatusCode, &'static str) {

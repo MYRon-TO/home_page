@@ -1,6 +1,5 @@
 <h1>
-    <a href="https://github.com/MYRon-TO/yuru" style="font-size: 2.8rem; display: flex; align-items: center;
-    ">
+    <a href="https://github.com/MYRon-TO/yuru" style="font-size: 2.8rem; display: flex; align-items: center;">
     <img src="./assets/images/jellyfish.png" width="70px" height="70px" alt="yuru">
             yuru
     </a>
@@ -8,7 +7,7 @@
 
 ---
 
-Here is the source code of my blog
+[Here is the source code of my blog](https://github.com/MYRon-TO/yuru)
 
 **These code won't work on windows, I guess :(**
 
@@ -58,7 +57,7 @@ cargo run --release --bin backend
 
 ## What I use
 - ~~apache(or lighttpd)~~
-- mysql
+- mysql/mariadb
 - node.js
   - npm
     - ~~typescript~~ <!-- actually, i didn't use it -->
@@ -72,6 +71,8 @@ cargo run --release --bin backend
 - rust
   - cargo
     - axum <!-- web framework -->
+    - tokio <!-- async runtime -->
+    - tower <!-- service abstraction -->
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
       - serde_json <!-- json parser -->
