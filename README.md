@@ -5,8 +5,6 @@
     </a>
 </h1>
 
----
-
 [Here is the source code of my blog](https://github.com/MYRon-TO/yuru)
 
 **These code won't work on windows, I guess :(**
@@ -45,8 +43,7 @@ vim .config/config.toml
 ### Build
 <font size=5rem color=red>**make sure you are in the root directory of this project**</font>
 ```bash
-cargo build --release --bin backend
-cargo build --release --bin init_db
+cargo build --release
 ```
 
 ### Run
