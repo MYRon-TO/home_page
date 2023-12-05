@@ -21,14 +21,21 @@ pub struct Blog {
 
 impl Blog {
     pub fn get_cover(&self) -> String {
-      // format!(
-      //   "<img src=\"{}\"/>",
-      //   self.cover
-      // )
-      self.cover.to_string()
+        // format!(
+        //   "<img src=\"{}\"/>",
+        //   self.cover
+        // )
+        if self.cover == "" {
+            return "/assets/images/default_cover.png".to_string();
+        }
+        self.cover.to_string()
     }
 
     pub fn get_background(&self) -> String {
+        if self.cover == "" {
+            return "background: url(/assets/images/default_cover.png) no-repeat center center fixed;"
+                .to_string();
+        }
         format!(
             "background: url({}) no-repeat center center fixed;",
             self.cover
@@ -64,7 +71,13 @@ impl Blog {
             let series = blog_series.get_series();
             let update_time = blog_series.get_update_time();
 
-            Blog { name, tags, cover ,series ,update_time}
+            Blog {
+                name,
+                tags,
+                cover,
+                series,
+                update_time,
+            }
         } else {
             Blog {
                 name: "".to_string(),
