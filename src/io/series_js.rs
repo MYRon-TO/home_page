@@ -53,6 +53,6 @@ mod tests {
             .unwrap();
         assert_eq!(series.title, "计算机网络");
         assert_eq!(series.desc, "这里放的是计算机网络的笔记");
-        assert_eq!(series.has_cover, false);
+        assert_eq!(series.has_cover, true);
     }
 }
