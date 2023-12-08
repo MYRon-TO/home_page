@@ -39,13 +39,6 @@ impl Database {
     /// get all series from database
     /// return a vector of SeriesDb
     /// in case u forgot what is SeriesDb
-    /// ```
-    /// pub struct SeriesDb {
-    ///     name: String,
-    ///     update_time: DateTime<Utc>,
-    ///     info_path: String,
-    /// }
-    /// ```
     pub async fn get_all_series(&self) -> Vec<DbData> {
         let query = "SELECT * FROM series";
 
