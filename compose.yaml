@@ -11,9 +11,28 @@ services:
   server:
     build:
       context: .
-      target: final
+      # target: final
     ports:
       - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=1243
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=1243
+      - MYSQL_DATABASE=yuru
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - 127.0.0.1:3001:3001
+    expose:
+        - 3001
+
+volumes:
+  db-data:
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

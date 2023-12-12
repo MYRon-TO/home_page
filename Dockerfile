@@ -9,9 +9,23 @@
 
 ARG RUST_VERSION=1.73.0
 ARG APP_NAME=backend
+
+
+###############################################################################
+# INSTALL PACKAGES FOR NPM
+FROM node:latest AS build_node
+WORKDIR /app
+
+# COPY --from=build_rust /app/server /app/server
+COPY package.json package-lock.json ./
+RUN npm install
+
+
 FROM rust:${RUST_VERSION}-slim-bullseye AS build_rust
 ARG APP_NAME
 WORKDIR /app
+
+COPY --from=build_node /app/node_modules ./node_modules
 
 # Build the application.
 # Leverage a cache mount to /usr/local/cargo/registry/
@@ -40,24 +54,8 @@ cp ./target/release/$APP_NAME ./server
 cp ./target/release/init_db ./init_db
 EOF
 
-###############################################################################
-# INSTALL PACKAGES FOR NPM
-FROM node:latest AS build_node
-WORKDIR /app
+COPY . .
 
-COPY --from=build_rust /app/server /app/server
-COPY package.json package-lock.json ./
-
-RUN npm install
-
-# RUN --mount=type=bind,source=package.json,target=package.json \
-#     --mount=type=bind,source=package-lock.json,target=package-lock.json \
-#     --mount=type=cache,target=/root/.npm \
-#     <<EOF
-# set -e
-# node -v
-# npm install
-# EOF
 
 
 ###############################################################################
