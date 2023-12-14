@@ -68,28 +68,37 @@ COPY . .
 # most recent version of that tag when you build your Dockerfile. If
 # reproducability is important, consider using a digest
 # (e.g., debian@sha256:ac707220fbd7b67fc19b112cee8170b41a9e97f703f588b2cdbbcdcecdd8af57).
-FROM debian:bullseye-slim AS final
+# FROM debian:bullseye-slim AS final
 
-# Create a non-privileged user that the app will run under.
-# See https://docs.docker.com/go/dockerfile-user-best-practices/
+# # Create a non-privileged user that the app will run under.
+# # See https://docs.docker.com/go/dockerfile-user-best-practices/
 
-# COPY --from=build_rust /app/. /app
-WORKDIR /app
-COPY --from=build_rust /app/ .
+# # COPY --from=build_rust /app/. /app
+# WORKDIR /app
+# COPY --from=build_rust /app/ .
 
-# ARG UID=10001
-# RUN adduser \
-#     --disabled-password \
-#     --gecos "" \
-#     --home "/nonexistent" \
-#     --shell "/sbin/nologin" \
-#     --no-create-home \
-#     --uid "${UID}" \
-#     appuser
+# # ARG UID=10001
+# # RUN adduser \
+# #     --disabled-password \
+# #     --gecos "" \
+# #     --home "/nonexistent" \
+# #     --shell "/sbin/nologin" \
+# #     --no-create-home \
+# #     --uid "${UID}" \
+# #     appuser
 
-RUN apt-get update && apt-get install -y iputils-ping
+# RUN apt-get update && apt-get install -y iputils-ping
 
 # USER appuser
+
+FROM ubuntu/mysql:latest AS final
+
+ENV MYSQL_ROOT_PASSWORD=1243
+ENV MYSQL_DATABASE=yuru
+ENV TZ=Asia/Shanghai
+
+WORKDIR /app
+COPY --from=build_rust /app/ .
 
 # # Copy the executable from the "build" stage.
 # COPY --from=build /bin/server /bin/
@@ -99,5 +108,5 @@ EXPOSE 3000
 
 # What the container should run when it is started.
 # CMD ["/app/server"]
-CMD ["/app/test"]
+# CMD ["/app/test"]
 # CMD ["/app/init_db"]

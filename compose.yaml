@@ -36,9 +36,9 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     ports:
-      - 3301:3006
+      - 3306:3306
     expose:
-        - 3001
+        - 3306
     networks:
         - yuru-network
 
