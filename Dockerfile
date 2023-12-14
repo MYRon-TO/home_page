@@ -25,7 +25,9 @@ FROM rust:${RUST_VERSION}-slim-bullseye AS build_rust
 ARG APP_NAME
 WORKDIR /app
 
-COPY --from=build_node /app/node_modules ./node_modules
+COPY --from=build_node /app/node_modules ./doc/node_modules
+
+COPY . .
 
 # Build the application.
 # Leverage a cache mount to /usr/local/cargo/registry/
@@ -55,7 +57,7 @@ cp ./target/release/init_db ./init_db
 cp ./target/release/test ./test
 EOF
 
-COPY . .
+RUN cargo clean
 
 ###############################################################################
 # Create a new stage for running the application that contains the minimal
@@ -77,35 +79,40 @@ COPY . .
 # WORKDIR /app
 # COPY --from=build_rust /app/ .
 
-# # ARG UID=10001
-# # RUN adduser \
-# #     --disabled-password \
-# #     --gecos "" \
-# #     --home "/nonexistent" \
-# #     --shell "/sbin/nologin" \
-# #     --no-create-home \
-# #     --uid "${UID}" \
-# #     appuser
 
 # RUN apt-get update && apt-get install -y iputils-ping
 
-# USER appuser
 
-FROM ubuntu/mysql:latest AS final
+# FROM ubuntu/mysql:latest AS final
+FROM ubuntu:latest AS final
+RUN apt-get update && apt-get install -y iputils-ping
 
-ENV MYSQL_ROOT_PASSWORD=1243
-ENV MYSQL_DATABASE=yuru
-ENV TZ=Asia/Shanghai
+ARG UID=10001
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid "${UID}" \
+    appuser
+
+USER appuser
+
+# ENV MYSQL_ROOT_PASSWORD=1243
+# ENV MYSQL_DATABASE=yuru
+# ENV TZ=Asia/Shanghai
 
 WORKDIR /app
 COPY --from=build_rust /app/ .
-COPY ./docker_env/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+# COPY ./docker_env/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # # Copy the executable from the "build" stage.
 # COPY --from=build /bin/server /bin/
 
 # Expose the port that the application listens on.
 EXPOSE 3000
+# RUN ./init_db
 
 # What the container should run when it is started.
 # CMD ["/app/server"]

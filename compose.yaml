@@ -17,11 +17,13 @@ services:
       - 3000:3000
     environment:
         MYSQL_HOST: db
-        MYSQL_PORT: 3001
+        MYSQL_PORT: 3306
     depends_on:
       - db
     networks:
         - yuru-network
+    # command: tail -f /dev/null
+    command: /bin/bash -c "./init_db && ./server"
 
   db:
     image: mysql:latest
@@ -41,14 +43,7 @@ services:
         - 3306
     networks:
         - yuru-network
-
-  # test:
-  #   image: ubuntu:latest
-  #   command: echo "Hello from the test container!"
-  #   depends_on:
-  #     - db
-  #   networks:
-  #       - yuru-network
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
 
 volumes:
   db-data:
