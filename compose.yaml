@@ -12,27 +12,49 @@ services:
     build:
       context: .
       # target: final
+    # restart: always
     ports:
       - 3000:3000
+    environment:
+        MYSQL_HOST: db
+        MYSQL_PORT: 3001
     depends_on:
       - db
+    networks:
+        - yuru-network
 
   db:
     image: mysql:latest
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=1243
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=1243
       - MYSQL_DATABASE=yuru
+      - MYSQL_USER=Liz
+      - MYSQL_PASSWORD=1243
+      # - MYSQL_USER=Liz
+      # - MYSQL_PASSWORD=#ff0000Berry
     volumes:
       - db-data:/var/lib/mysql
     ports:
-      - 127.0.0.1:3001:3001
+      - 3301:3006
     expose:
         - 3001
+    networks:
+        - yuru-network
+
+  # test:
+  #   image: ubuntu:latest
+  #   command: echo "Hello from the test container!"
+  #   depends_on:
+  #     - db
+  #   networks:
+  #       - yuru-network
 
 volumes:
   db-data:
+networks:
+    yuru-network:
+        driver: bridge
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

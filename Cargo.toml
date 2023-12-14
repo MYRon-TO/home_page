@@ -9,6 +9,9 @@ edition = "2021"
 name = "init_db"
 path = "src/bin/init_db/init_db.rs"
 
+[[bin]]
+name = "test"
+path = "src/bin/test/test.rs"
 
 [dependencies]
 # web framework

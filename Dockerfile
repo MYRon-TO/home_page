@@ -52,11 +52,10 @@ cargo build --locked --release
 cargo test
 cp ./target/release/$APP_NAME ./server
 cp ./target/release/init_db ./init_db
+cp ./target/release/test ./test
 EOF
 
 COPY . .
-
-
 
 ###############################################################################
 # Create a new stage for running the application that contains the minimal
@@ -69,10 +68,15 @@ COPY . .
 # most recent version of that tag when you build your Dockerfile. If
 # reproducability is important, consider using a digest
 # (e.g., debian@sha256:ac707220fbd7b67fc19b112cee8170b41a9e97f703f588b2cdbbcdcecdd8af57).
-# FROM debian:bullseye-slim AS final
+FROM debian:bullseye-slim AS final
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
+
+# COPY --from=build_rust /app/. /app
+WORKDIR /app
+COPY --from=build_rust /app/ .
+
 # ARG UID=10001
 # RUN adduser \
 #     --disabled-password \
@@ -82,6 +86,9 @@ COPY . .
 #     --no-create-home \
 #     --uid "${UID}" \
 #     appuser
+
+RUN apt-get update && apt-get install -y iputils-ping
+
 # USER appuser
 
 # # Copy the executable from the "build" stage.
@@ -91,4 +98,6 @@ COPY . .
 EXPOSE 3000
 
 # What the container should run when it is started.
-# CMD ["/bin/server"]
+# CMD ["/app/server"]
+CMD ["/app/test"]
+# CMD ["/app/init_db"]

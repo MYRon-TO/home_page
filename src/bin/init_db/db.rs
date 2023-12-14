@@ -12,7 +12,7 @@ impl Database {
             .max_connections(5)
             .connect(db.as_str())
             .await
-            .expect("连接数据库失败");
+            .expect(format!("连接数据库失败:{}",db).as_str());
 
         Database { pool }
     }

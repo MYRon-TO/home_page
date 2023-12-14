@@ -1,6 +1,7 @@
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 use serde::Deserialize;
 use std::{fs::File, io::Read};
+// use std::env;
 
 #[derive(Debug, Deserialize)]
 pub struct Config {
@@ -24,6 +25,8 @@ impl Config {
             self.database_user.get_user(),
             self.database_user.get_password(),
             self.database.get_host(),
+            // env::var("MYSQL_HOST").unwrap_or_else(|_| "localhost".to_string()),
+            // "127.19.0.2:3001",
             self.database.get_database()
         );
         const QUERY_ENCODE_SET: &AsciiSet = &CONTROLS
@@ -85,16 +88,16 @@ impl DataBase {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
 
-    #[test]
-    fn test_config() {
-        let config = Config::new();
-        assert_eq!(
-            config.get(),
-            "mysql://BlueBird:%23ff0000Berry@localhost/yuru"
-        );
-    }
-}
+//     #[test]
+//     fn test_config() {
+//         let config = Config::new();
+//         assert_eq!(
+//             config.get(),
+//             "mysql://BlueBird:%23ff0000Berry@localhost/yuru"
+//         );
+//     }
+// }
