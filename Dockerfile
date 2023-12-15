@@ -85,7 +85,7 @@ RUN cargo clean
 
 # FROM ubuntu/mysql:latest AS final
 FROM ubuntu:latest AS final
-RUN apt-get update && apt-get install -y iputils-ping
+# RUN apt-get update && apt-get install -y iputils-ping
 
 ARG UID=10001
 RUN adduser \

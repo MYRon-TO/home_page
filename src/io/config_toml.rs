@@ -87,17 +87,3 @@ impl DataBase {
         self.database.clone()
     }
 }
-
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-
-//     #[test]
-//     fn test_config() {
-//         let config = Config::new();
-//         assert_eq!(
-//             config.get(),
-//             "mysql://BlueBird:%23ff0000Berry@localhost/yuru"
-//         );
-//     }
-// }

@@ -10,7 +10,9 @@
 **These code won't work on windows, I guess :(**
 
 ## Quick Start
-make sure you have installed [**node.js**](https://nodejs.org/en) ,[**mysql**](https://www.mysql.com/downloads/) and [**rust**](https://www.rust-lang.org/zh-CN/tools/install)
+~~make sure you have installed [**node.js**](https://nodejs.org/en) ,[**mysql**](https://www.mysql.com/downloads/) and [**rust**](https://www.rust-lang.org/zh-CN/tools/install)~~
+
+make sure you have installed [**docker**](https://docs.docker.com/get-docker/) and [**docker-compose**](https://docs.docker.com/compose/install/)
 
 ### Init Datebase
 
