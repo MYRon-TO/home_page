@@ -99,13 +99,8 @@ RUN adduser \
 
 USER appuser
 
-# ENV MYSQL_ROOT_PASSWORD=1243
-# ENV MYSQL_DATABASE=yuru
-# ENV TZ=Asia/Shanghai
-
 WORKDIR /app
 COPY --from=build_rust /app/ .
-# COPY ./docker_env/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # # Copy the executable from the "build" stage.
 # COPY --from=build /bin/server /bin/

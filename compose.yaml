@@ -23,16 +23,15 @@ services:
     command: /bin/bash -c "./init_db && ./server"
 
   db:
-    image: mysql:latest
+    build:
+      dockerfile: ./db/Dockerfile
+    # image: mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1243
       MYSQL_DATABASE: yuru
-      # it dosen't work >:(
-      # MYSQL_USER: Liz
-      # MYSQL_PASSWORD: 1243
-    volumes:
-      - db-data:/var/lib/mysql
+    # volumes:
+    #   - db-data:/var/lib/mysql
     ports:
       - 3307:3307
     expose:
@@ -41,8 +40,8 @@ services:
         - yuru-network
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
 
-volumes:
-  db-data:
+# volumes:
+#   db-data:
 networks:
     yuru-network:
         driver: bridge
