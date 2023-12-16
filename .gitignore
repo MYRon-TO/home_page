@@ -6,3 +6,10 @@
 
 /target
 node_modules
+
+# latex
+report/*.log
+report/*.pdf
+report/*.aux
+report/*.toc
+
