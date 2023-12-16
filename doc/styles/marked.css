@@ -1,10 +1,9 @@
 /* ## marked css */
 
 /* ### set blog article font size */
-.blog_artical * {
+.blog_artical p {
   /* padding: 0; */
   text-align: justify;
-
   font-size: 1.3rem;
 }
 
