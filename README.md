@@ -14,48 +14,27 @@
 
 make sure you have installed [**docker**](https://docs.docker.com/get-docker/) and [**docker-compose**](https://docs.docker.com/compose/install/)
 
-### Init Datebase
-
-connect to mysql and run the following sql
-
-#### - create database
-```sql
-CREATE DATABASE yuru;
-```
-
-#### - create user
-```sql
--- I won't show you my password :)
-CREATE USER 'user_can_read'@'localhost' IDENTIFIED BY 'password';
-CREATE USER 'user_can_write'@'localhost' IDENTIFIED BY 'password';
-
-GRANT SELECT ON yuru.* TO 'user_can_read'@'localhost';
-GRANT ALL PRIVILEGES ON yuru.* TO 'user_can_write'@'localhost';
-```
-
-#### - fill the config
-```bash
-mv .config/config.toml.example .config/config.toml
-```
-choose a editor you like :)
-```bash
-vim .config/config.toml
-```
-
-### Build
-<font size=5rem color=red>**make sure you are in the root directory of this project**</font>
-```bash
-cargo build --release
-```
-
 ### Run
 ```bash
-cargo run --release --bin init_db
-cargo run --release --bin backend
+mv ./.config/config.toml.example ./.config/config.toml
+# 修改配置文件
+vim ./.config/config.toml
+vim ./db/init_db.sql
+# 保证两文件数据库用户名与密码相同
+```
+
+```bash
+docker compose up --build
+```
+
+### Stop
+```
+<Ctrl-C>
 ```
 
 ## What I use
 - ~~apache(or lighttpd)~~
+- docker
 - mysql/mariadb
 - node.js
   - npm
@@ -66,6 +45,7 @@ cargo run --release --bin backend
         - material design icons
         - material desifn lite
     - sakana-widget <!-- a widget -->
+    - matter.js
 - fontawesome <!-- icon font -->
 - rust
   - cargo
@@ -75,6 +55,6 @@ cargo run --release --bin backend
     - sqlx <!-- database driver -->
     - serde <!-- json parser -->
       - serde_json <!-- json parser -->
-    - toml
+      - toml
     - askama <!-- template engine -->
     - walkdir
